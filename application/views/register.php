@@ -208,37 +208,45 @@
 					</a>
 					<h4>Create an Account</h4>
 					<p>Don't have an account? Create your account. It's take less then a minutes</p>
-					<form class="s12">
+					<form class="s12" action="<?php echo base_url();?>index.php/Register/insert_user" method="post">
 						<div>
 							<div class="input-field s12">
-								<input type="text" data-ng-model="name1" class="validate">
+								<input type="text" name="username" data-ng-model="name1" class="validate">
 								<label>User name</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="email" class="validate">
+								<input type="email" name="email" class="validate">
 								<label>Email id</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" class="validate">
+							<select name = "category">
+								<option value = "user" selected>User</option>
+								<option value = "vendor">Vendor</option>
+							</select>
+							</div>
+						</div>
+						<div>
+							<div class="input-field s12">
+								<input type="password" name="password" class="validate">
 								<label>Password</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" class="validate">
+								<input type="password" name="confirmpassword" class="validate">
 								<label>Confirm password</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s4">
-								<input type="submit" value="Register" class="waves-effect waves-light log-in-btn"> </div>
+								<input type="submit" value="Register" name="save" class="waves-effect waves-light log-in-btn"> </div>
 						</div>
 						<div>
-							<div class="input-field s12"> <a href="login.html">Are you a already member ? Login</a> </div>
+							<div class="input-field s12"> <a href="<?php echo base_url('/index.php/login'); ?>">Are you a already member ? Login</a> </div>
 						</div>
 					</form>
 				</div>

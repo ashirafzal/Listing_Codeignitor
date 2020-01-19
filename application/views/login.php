@@ -205,25 +205,25 @@
 					</a>
 					<h4>Login</h4>
 					<p>Don't have an account? Create your account. It's take less then a minutes</p>
-					<form class="s12">
+					<form class="s12" action="<?php echo base_url();?>index.php/Login/user_login" method="post">
 						<div>
 							<div class="input-field s12">
-								<input type="text" data-ng-model="name1" class="validate">
+								<input type="text" name="username" data-ng-model="name1" class="validate">
 								<label>User name</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" class="validate">
+								<input type="password" name="password" class="validate">
 								<label>Password</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s4">
-								<input type="submit" value="Register" class="waves-effect waves-light log-in-btn"> </div>
+								<input type="submit" value="Login" name="login" class="waves-effect waves-light log-in-btn"> </div>
 						</div>
 						<div>
-							<div class="input-field s12"> <a href="forgot-pass.html">Forgot password</a> | <a href="register.html">Create a new account</a> </div>
+							<div class="input-field s12"> <a href="forgot-pass.html">Forgot password</a> | <a href="<?php echo base_url('/index.php/register'); ?>">Create a new account</a> </div>
 						</div>
 					</form>
 				</div>
