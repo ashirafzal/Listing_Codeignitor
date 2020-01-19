@@ -514,29 +514,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="col-md-6">
 					<div class="hom-cre-acc-left hom-cre-acc-right">
-						<form>
+						<form action="<?php echo base_url();?>index.php/Register/insert_user" method="post">
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="acc-name" type="text" class="validate">
-									<label for="acc-name">Name</label>
+									<input id="acc-name" name="username" type="text" class="validate">
+									<label for="acc-name">Username</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="acc-mob" type="number" class="validate">
-									<label for="acc-mob">Mobile</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="acc-mail" type="email" class="validate">
+									<input id="acc-mail" name="email" type="email" class="validate">
 									<label for="acc-mail">Email</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="acc-pass" type="password" class="validate">
+								<select name="category">
+									<option value = "user" selected>User</option>
+									<option value = "vendor">Vendor</option>
+								</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="acc-pass" name="password" type="password" class="validate">
 									<label for="acc-pass">Password</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="acc-pass" name="confirmpassword" type="password" class="validate">
+									<label for="acc-pass">Confirm Password</label>
 								</div>
 							</div>
 							<div class="row">
@@ -546,7 +554,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</div>
 							<div class="row">
-								<div class="input-field col s12"> <a class="waves-effect waves-light btn-large full-btn" href="#!">Submit Now</a> </div>
+							<input type="submit" value="Register" style="background:rgb(217,83,79);" name="save" class="btn-danger btn-block">
 							</div>
 						</form>
 					</div>
