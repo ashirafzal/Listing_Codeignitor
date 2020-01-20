@@ -612,8 +612,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<li> <a href="customer-reviews.html">Review</a> </li>
 											<li> <a href="how-it-work.html">How it works </a> </li>
 											<li> <a href="add-listing.html">Add Business</a> </li>
-											<li> <a href="#!">Register</a> </li>
-											<li> <a href="#!">Login</a> </li>
+											<li> <a href="<?php echo base_url('/index.php/register'); ?>">Register</a> </li>
+											<li> <a href="<?php echo base_url('/index.php/login'); ?>">Login</a> </li>
 											<li> <a href="#!">Quick Enquiry</a> </li>
 											<li> <a href="#!">Ratings </a> </li>
 											<li> <a href="trendings.html">Top Trends</a> </li>
@@ -661,12 +661,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="col-sm-4">
 										<h4>Address</h4>
-										<p>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A. Landmark : Next To Airport</p>
-										<p> <span class="strong">Phone: </span> <span class="highlighted">+01 1245 2541</span> </p>
+										<p>Main Road Nagan Chowrangi , North Karachi , District Central , Karachi , Pakistan</p>
+										<p> <span class="strong">Phone: </span> <span class="highlighted">+923423351437</span> </p>
 									</div>
 									<div class="col-sm-5 foot-social">
 										<h4>Follow with us</h4>
-										<p>Join the thousands of other There are many variations of passages of Lorem Ipsum available</p>
+										<p>Join the thousands of other There are many variations of passages of services available</p>
 										<ul>
 											<li><a href="#!"><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
 											<li><a href="#!"><i class="fa fa-google-plus" aria-hidden="true"></i></a> </li>
