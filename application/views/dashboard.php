@@ -1,14 +1,14 @@
 <?php
-
+/*
 	foreach($all_data as $data){
-	
+		
 		$userid = $data->id;
 		$username = $data->username;
 		$useremail = $data->email;
 		$usercategory = $data->category;
 
 		break;
-	}	
+	}	*/
 ?>
 <body>
 	<div id="preloader">
@@ -41,7 +41,7 @@
 						</div>
 					</div>			
                     <!--SECTION: BROWSE CATEGORY(NOTE:IT'S HIDE ON MOBILE & TABLET VIEW)-->
-					<div class="ts-menu-2"><a href="#" style="font-size:1.5rem" class="t-bb"><?php echo $username?><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+					<div class="ts-menu-2"><a href="#" style="font-size:1.5rem" class="t-bb">username<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 						<!--SECTION: BROWSE CATEGORY-->
 						<div class="cat-menu cat-menu-1">
 							<div class="dz-menu">
@@ -96,7 +96,7 @@
 				<div class="tz-l-2">
 					<ul>
 						<li>
-							<a href="dashboard.html" class="tz-lma"><img src="<?php echo base_url('assets/images/icon/dbl1.png')?>" alt="" /> My Dashboard</a>
+							<a href="<?php echo base_url('index.php/dashboard')?>" class="tz-lma"><img src="<?php echo base_url('assets/images/icon/dbl1.png')?>" alt="" /> My Dashboard</a>
 						</li>
 						<li>
 							<a href="db-all-listing.html"><img src="<?php echo base_url('assets/images/icon/dbl2.png')?>" alt="" /> All Listing</a>
@@ -111,7 +111,7 @@
 							<a href="db-review.html"><img src="<?php echo base_url('assets/images/icon/dbl13.png')?>" alt="" /> Reviews(05)</a>
 						</li>
 						<li>
-							<a href="db-my-profile.html"><img src="<?php echo base_url('assets/images/icon/dbl6.png')?>" alt="" /> My Profile</a>
+							<a href="<?php echo base_url('index.php/profile')?>"><img src="<?php echo base_url('assets/images/icon/dbl6.png')?>" alt="" /> My Profile</a>
 						</li>
 						<li>
 							<a href="db-post-ads.html"><img src="<?php echo base_url('assets/images/icon/dbl11.png')?>" alt="" /> Ad Summary</a>
