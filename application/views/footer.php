@@ -77,12 +77,12 @@
 										<h4>Follow with us</h4>
 										<p>Join the thousands of other There are many variations of passages of Lorem Ipsum available</p>
 										<ul>
-											<li><a href="#!"><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
-											<li><a href="#!"><i class="fa fa-google-plus" aria-hidden="true"></i></a> </li>
-											<li><a href="#!"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
-											<li><a href="#!"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
-											<li><a href="#!"><i class="fa fa-youtube" aria-hidden="true"></i></a> </li>
-											<li><a href="#!"><i class="fa fa-whatsapp" aria-hidden="true"></i></a> </li>
+											<li><a href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
+											<li><a href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a> </li>
+											<li><a href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
+											<li><a href="https://www.linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
+											<li><a href="https://www.youtube.com"><i class="fa fa-youtube" aria-hidden="true"></i></a> </li>
+											<li><a href="https://web.whatsapp.com/"><i class="fa fa-whatsapp" aria-hidden="true"></i></a> </li>
 										</ul>
 									</div>
 								</div>

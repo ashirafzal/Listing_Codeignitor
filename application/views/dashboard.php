@@ -185,81 +185,11 @@
 									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
 								</tr>
 								<tr>
-									<td>National Auto Care</td>
-									<td>28 Feb 2019</td>
-									<td><span class="db-list-rat">4.2</span></td>
-									<td><span class="db-list-rat">12</span></td>
-									<td><span class="db-list-ststus">Active</span></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Edit</a></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Delete</a></td>
-									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
-								</tr>
-								<tr>
 									<td>Pearl Perfumes</td>
 									<td>04 Mar 2019</td>
 									<td><span class="db-list-rat">4.2</span></td>
 									<td><span class="db-list-rat">232</span></td>
 									<td><span class="db-list-ststus-na">Inactive</span></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Edit</a></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Delete</a></td>
-									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
-								</tr>
-								<tr>
-									<td>Goman Travels</td>
-									<td>16 Mar 2019</td>
-									<td><span class="db-list-rat">4.2</span></td>
-									<td><span class="db-list-rat">432</span></td>
-									<td><span class="db-list-ststus">Active</span></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Edit</a></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Delete</a></td>
-									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
-								</tr>
-								<tr>
-									<td>William Watt Electricals</td>
-									<td>05 Apr 2019</td>
-									<td><span class="db-list-rat">4.2</span></td>
-									<td><span class="db-list-rat">116</span></td>
-									<td><span class="db-list-ststus">Active</span></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Edit</a></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Delete</a></td>
-									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
-								</tr>
-								<tr>
-									<td>Jb Montesari School</td>
-									<td>14 Apr 2019</td>
-									<td><span class="db-list-rat">4.2</span></td>
-									<td><span class="db-list-rat">553</span></td>
-									<td><span class="db-list-ststus-na">Inactive</span></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Edit</a></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Delete</a></td>
-									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
-								</tr>
-								<tr>
-									<td>Ramsey Wine Corner</td>
-									<td>18 Apr 2019</td>
-									<td><span class="db-list-rat">4.2</span></td>
-									<td><span class="db-list-rat">324</span></td>
-									<td><span class="db-list-ststus">Active</span></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Edit</a></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Delete</a></td>
-									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
-								</tr>
-								<tr>
-									<td>Royal Real Estates</td>
-									<td>02 May 2019</td>
-									<td><span class="db-list-rat">4.2</span></td>
-									<td><span class="db-list-rat">876</span></td>
-									<td><span class="db-list-ststus">Active</span></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Edit</a></td>
-									<td><a href="db-listing-edit.html" class="db-list-edit">Delete</a></td>
-									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
-								</tr>
-								<tr>
-									<td>Colors Car Services</td>
-									<td>07 May 2019</td>
-									<td><span class="db-list-rat">4.2</span></td>
-									<td><span class="db-list-rat">65</span></td>
-									<td><span class="db-list-ststus">Active</span></td>
 									<td><a href="db-listing-edit.html" class="db-list-edit">Edit</a></td>
 									<td><a href="db-listing-edit.html" class="db-list-edit">Delete</a></td>
 									<td><a href="listing-details.html" class="db-list-edit" target="_blank"><i class="fa fa-eye"></i></a></td>
@@ -329,12 +259,6 @@
 									<div class="hid-msg"><a href="#"><i class="fa fa-eye" title="view"></i></a><a href="#"><i class="fa fa-trash" title="delete"></i></a>
 									</div>
 								</li>
-								<li class="view-msg">
-									<h5><img src="<?php echo base_url('assets/images/users/4.png')?>" alt="" />Request for meet <span class="tz-msg-read">unread</span></h5>
-									<p>Duis nulla ligula, interdum porta nulla sed, efficitur tempus lacus. Quisque facilisis, sapien tempor mollis sollicitudin, urna ligula vulputate nulla, rhoncus faucibus justo mauris eget elit.Pellentesque eget pellentesque dolor.</p>
-									<div class="hid-msg"><a href="#"><i class="fa fa-eye" title="view"></i></a><a href="#"><i class="fa fa-trash" title="delete"></i></a>
-									</div>
-								</li>
 							</ul>
 						</div>
 					</div>
@@ -361,22 +285,6 @@
 										</form>
 									</div>
 								</li>
-								<li class="view-msg">
-									<h5><img src="<?php echo base_url('assets/images/users/1.png')?>" alt="" />	Christopher <span class="tz-revi-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></h5>
-									<p>Duis nulla ligula, interdum porta nulla sed, efficitur tempus lacus. Quisque facilisis, sapien tempor mollis sollicitudin, urna ligula vulputate nulla, rhoncus faucibus justo mauris eget elit.Pellentesque eget pellentesque dolor.</p>
-									<div class="hid-msg"><a href="#!"><i class="fa fa-check" title="approve this review"></i></a><a href="#!"><i class="fa fa-edit" title="edit"></i></a><a href="#!"><i class="fa fa-trash" title="delete"></i></a><a href="#!"><i class="fa fa-reply edit-replay" title="replay"></i></a>
-										<form class="col s12 hide-box">
-											<div class="">
-												<div class="input-field col s12">
-													<textarea class="materialize-textarea"></textarea>
-													<label>Write your replay</label>
-												</div>
-												<div class="input-field col s12">
-													<input type="submit" value="Submit" class="waves-effect waves-light btn-large"> </div>
-											</div>
-										</form>
-									</div>
-								</li>
 							</ul>
 						</div>
 					</div>
@@ -384,53 +292,11 @@
 			</div>
 			<!--RIGHT SECTION-->
 			<div class="tz-3">
-				<h4>Notifications(18)</h4>
+				<h4>Notifications()</h4>
 				<ul>
 					<li>
 						<a href="#!"> <img src="<?php echo base_url('assets/images/icon/dbr1.jpg')?>" alt="" />
 							<h5>Joseph, write a review</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="<?php echo base_url('assets/images/icon/dbr2.jpg')?>" alt="" />
-							<h5>14 New Messages</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="<?php echo base_url('assets/images/icon/dbr3.jpg')?>" alt="" />
-							<h5>Ads expairy soon</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="<?php echo base_url('assets/images/icon/dbr4.jpg')?>" alt="" />
-							<h5>Post free ads - today only</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="<?php echo base_url('assets/images/icon/dbr5.jpg')?>" alt="" />
-							<h5>listing limit increase</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="<?php echo base_url('assets/images/icon/dbr6.jpg')?>" alt="" />
-							<h5>mobile app launch</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="<?php echo base_url('assets/images/icon/dbr7.jpg')?>" alt="" />
-							<h5>Setting Updated</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="<?php echo base_url('assets/images/icon/dbr8.jpg')?>" alt="" />
-							<h5>Increase listing viewers</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
 					</li>
