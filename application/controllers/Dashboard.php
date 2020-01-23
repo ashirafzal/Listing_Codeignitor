@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller {
 			redirect('login','refresh');
 		}else{
 			$this->load->view('dashboard');
+			$this->load->view('footer');
 		}
 		
 	}

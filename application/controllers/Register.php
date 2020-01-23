@@ -6,6 +6,7 @@ class Register extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('register');
+		$this->load->view('footer');
 	}
 
 	public function insert_user(){		
@@ -25,6 +26,7 @@ class Register extends CI_Controller {
 			if($password != $confpassword){
 				$data['pass'] = "notpass";
 				$this->load->view('register',$data);
+				$this->load->view('footer');
 			}else{
 				//call saverecords method of Hello_Model and pass variables as parameter
 				$this->Register_Model->saverecords($username,$email,$category,$password);		
