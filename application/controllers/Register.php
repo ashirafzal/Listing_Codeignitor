@@ -19,11 +19,18 @@ class Register extends CI_Controller {
 		$email = $this->input->post('email');
 		$category = $this->input->post('category');
 		$password = $this->input->post('password');
+		$confpassword = $this->input->post('confirmpassword');
 		
 		
-        //call saverecords method of Hello_Model and pass variables as parameter
-		$this->Register_Model->saverecords($username,$email,$category,$password);		
-		redirect('Login','refresh'); 
+			if($password != $confpassword){
+				$data['pass'] = "notpass";
+				$this->load->view('register',$data);
+			}else{
+				//call saverecords method of Hello_Model and pass variables as parameter
+				$this->Register_Model->saverecords($username,$email,$category,$password);		
+				redirect('Login','refresh'); 
+			}
+
 		}
 	}
 }

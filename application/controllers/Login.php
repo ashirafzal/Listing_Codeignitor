@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('login');
+		$this->load->view('login'); 
 	}
 
 	public function user_login()
@@ -19,7 +19,19 @@ class Login extends CI_Controller {
 		$password = $this->input->post('password');
 		
         //call saverecords method of Hello_Model and pass variables as parameter
-		$this->Login_Model->login($username,$password);
+		$data['all_data'] = $this->Login_Model->login($username,$password);
+		$this->load->library('session');
+
+		$this->session->set_userdata('user', $data);
+
+		if($this->session->userdata('user') == ''){
+			redirect('Login','refresh');
+		}else{
+			$this->load->view('dashboard', $data);
+			//redirect('Dashboard','refresh');
+			//var_dump($data['all_data']);
+		}
+		
 		}
 	}
 }

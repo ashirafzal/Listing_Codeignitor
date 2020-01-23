@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					<div class="v3-menu">
 						<div class="v3-m-1">
-							<a href="index-1.html"><img src="<?php echo base_url('/assets/images/logo2.png'); ?>" alt=""> </a>
+							<a href="<?php echo base_url('')?>"><img src="<?php echo base_url('/assets/images/logo2.png'); ?>" alt=""> </a>
 						</div>
 						<div class="v3-m-2">
 							<ul>

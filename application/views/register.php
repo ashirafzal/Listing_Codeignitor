@@ -208,22 +208,30 @@
 					</a>
 					<h4>Create an Account</h4>
 					<p>Don't have an account? Create your account. It's take less then a minutes</p>
-					<form class="s12" action="<?php echo base_url();?>index.php/Register/insert_user" method="post">
+					<form class="s12" id="registerform" action="<?php echo base_url();?>index.php/Register/insert_user" method="post">
+						<div style="display:none" id="alert1" class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<strong>password & confirm password mismatched.</strong>
+						</div>
+						<div style="display:none" id="alert2" class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<strong>A user already registered with email .Try another one.</strong>
+						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="text" name="username" data-ng-model="name1" class="validate">
+								<input type="text" id="username" name="username" data-ng-model="name1" class="validate">
 								<label>User name</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="email" name="email" class="validate">
+								<input type="email" id="email" name="email" class="validate">
 								<label>Email id</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-							<select name = "category">
+							<select id="category" name = "category">
 								<option value = "user" selected>User</option>
 								<option value = "vendor">Vendor</option>
 							</select>
@@ -231,13 +239,13 @@
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" name="password" class="validate">
+								<input type="password" id="password" name="password" class="validate">
 								<label>Password</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" name="confirmpassword" class="validate">
+								<input type="password" id="confirmpassword" name="confirmpassword" class="validate">
 								<label>Confirm password</label>
 							</div>
 						</div>
@@ -436,6 +444,11 @@
 		</div>
 		<!-- GET QUOTES Popup END -->
 	</section>
+	<script type="text/javascript">
+		function validate(){
+			
+		}
+	</script>
 	<!--SCRIPT FILES-->
 	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/angular.min.js'); ?>"></script>

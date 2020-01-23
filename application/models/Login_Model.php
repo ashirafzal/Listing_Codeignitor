@@ -10,12 +10,13 @@
             $this->load->database();
             $query="select * from users where username='".$username."'
             and password='".$password."' ";
-            $this->db->query($query);
+            $query = $this->db->query($query);
 
             $afftectedRows = $this->db->affected_rows();
             if ($afftectedRows == 1) {
-                redirect('Welcome','refresh');
+                return $query->result();                
             }else{
+                /*redirect('Dashboard/index','refresh');*/
                 //No user exist handling
             }
 
