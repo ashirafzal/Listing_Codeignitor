@@ -10,9 +10,9 @@ class Dashboard extends CI_Controller {
 		if($this->session->userdata('user') == ''){
 			redirect('login','refresh');
 		}else{
-			$this->load->view('headerfiles');
-			$this->load->view('dashboard');
-			$this->load->view('footer');
+			$this->load->view('header/headerfiles');
+			$this->load->view('dashboardpages/dashboard');
+			$this->load->view('footer/footer');
 		}
 		
 	}

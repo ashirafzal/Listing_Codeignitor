@@ -22,7 +22,7 @@
 						<div class="v3-m-3">
 							<div class="v3-top-ri v32-top-ri">
 								<ul>
-									<li><a href="<?php echo base_url('/index.php/login'); ?>" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign In</a></li>
+									<li><a href="login" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign In</a></li>
 									<!--<li><a href="db-listing-add.html" class="v3-add-bus"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a></li>-->
 								</ul>
 							</div>
@@ -489,7 +489,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="hom-cre-acc-left hom-cre-acc-right">
-						<form action="<?php echo base_url();?>index.php/Register/insert_user" method="post">
+						<form action="welcome_register" method="post">
 							<div class="row">
 								<div class="input-field col s12">
 									<input id="acc-name" name="username" type="text" class="validate">

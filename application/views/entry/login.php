@@ -1,9 +1,7 @@
 <body data-ng-app="">
-	<!--
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div>
-	-->
 	<!--TOP SEARCH SECTION-->
 	<section class="bottomMenu dir-il-top-fix">
 		<div class="container top-search-main">
