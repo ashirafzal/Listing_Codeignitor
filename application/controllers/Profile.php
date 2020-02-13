@@ -10,9 +10,7 @@ class Profile extends CI_Controller {
 		if($this->session->userdata('user') == ''){
 			redirect('login','refresh');
 		}else{
-			$this->load->view('headers/headerfiles');
-			$this->load->view('dashboardpages/profile');
-			$this->load->view('footer/footer'); 
+			$this->load->view('profile');
 		}
     }
 }

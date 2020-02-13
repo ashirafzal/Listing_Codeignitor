@@ -5,9 +5,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('headers/headerfiles');
-		$this->load->view('entry/login');
-		$this->load->view('footer/footer'); 
+		$this->load->view('login'); 
 	}
 
 	public function user_login()
@@ -29,9 +27,7 @@ class Login extends CI_Controller {
 		if($this->session->userdata('user') == ''){
 			redirect('Login','refresh');
 		}else{
-			$this->load->view('headers/headerfiles');
-			$this->load->view('dashboardpages/dashboard', $data);
-			$this->load->view('footer/footer'); 
+			$this->load->view('dashboard', $data);
 			//redirect('Dashboard','refresh');
 			//var_dump($data['all_data']);
 		}

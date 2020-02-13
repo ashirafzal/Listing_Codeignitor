@@ -58,7 +58,6 @@ $route['default_controller'] = 'welcome';
 $route['login'] = 'login';
 $route['welcome_register'] = 'Register/insert_user';
 $route['register'] = 'register';
-$route['loginhere'] = 'Login/index';
 /* Own controllers  */
 
 /* Error controllers  */
