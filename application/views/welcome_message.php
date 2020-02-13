@@ -729,56 +729,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</section>
 <script type="text/javascript">
 $(document).ready(function() {
-  $("#submit").click(function(e){
-      e.preventDefault();
-
-      var username = $("input[name='username']").val();
-      var email = $("input[name='email']").val();
-      var category = $("select[name='category']").val();
-	  var password = $("input[name='password']").val();
-	  var confirmpassword = $("input[name='confirmpassword']").val();
+$("#submit").click(function(e){
+      
+	  	e.preventDefault();
+		var username = $("input[name='username']").val();
+		var email = $("input[name='email']").val();
+		var category = $("select[name='category']").val();
+		var password = $("input[name='password']").val();
+		var confirmpassword = $("input[name='confirmpassword']").val();
 	   
-	   if(password != confirmpassword){
-			$(".alert-danger").css('display','block');
-			$(".alert-danger").html("password and confirm password doesnot matched");
-	   }
-	   else if(email == ''){
-			$(".alert-danger").css('display','block');
-			$(".alert-danger").html("Email required");
-	   }
-	   else if(category == ''){
-			$(".alert-danger").css('display','block');
-			$(".alert-danger").html("Category required");
-	   }
-	   else if(password == ''){
-			$(".alert-danger").css('display','block');
-			$(".alert-danger").html("Password required");
-	   }
-	   else if(confirmpassword == ''){
-			$(".alert-danger").css('display','block');
-			$(".alert-danger").html("Confirm password required");
-	   }
-	   else{
-			$.ajax({
-				url: "welcome_register",
-				type: "post",
-				dataType: "json",
+		$.ajax({
+			url: "welcome_register",
+			type: "post",
+			dataType: "json",
 
-				data: {username:username, email:email, category:category ,
-				password:password , confirmpassword:confirmpassword },
+			data: {username:username, email:email, category:category ,
+			password:password , confirmpassword:confirmpassword },
 
-				success: function(data) {
-					if($.isEmptyObject(data.error)){
-						$(".alert-success").css('display','block');
-						$(".alert-success").html(data.success);
-					}else{
-						$(".alert-danger").css('display','block');
-						$(".alert-danger").html(data.error);
-					}
+			success: function(data) {
+				if($.isEmptyObject(data.error)){
+					$(".alert-success").css('display','block');
+					$(".alert-success").html(data.success);
+				}else{
+					$(".alert-danger").css('display','block');
+					$(".alert-danger").html(data.error);
 				}
-			});
-	   }      
-  }); 
+			}
+		});      
+  	}); 
 });
 </script>
 	<!--SCRIPT FILES-->

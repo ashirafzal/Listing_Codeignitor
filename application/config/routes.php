@@ -57,7 +57,9 @@ $route['default_controller'] = 'welcome';
 /* Own controllers  */
 $route['login'] = 'login';
 $route['welcome_register'] = 'Register/insert_user';
+$route['userlogin'] = 'Login/user_login';
 $route['register'] = 'register';
+$route['dashboard'] = 'Dashboard/index';
 /* Own controllers  */
 
 /* Error controllers  */

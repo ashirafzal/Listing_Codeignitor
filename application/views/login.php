@@ -206,11 +206,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a>
 					<h4>Login</h4>
 					<p>Don't have an account? Create your account. It's take less then a minutes</p>
-					<form class="s12" action="<?php echo base_url();?>index.php/Login/user_login" method="post">
+					<?php echo form_open('userlogin');?>
+					<form class="s12" action="userlogin" method="post">
+							<div class="row">
+								<div class="alert alert-success" style="display:none">
+								</div>
+								<div class="alert alert-danger" style="display:none">
+								</div>
+							</div>
 						<div>
 							<div class="input-field s12">
-								<input type="text" name="username" data-ng-model="name1" class="validate">
-								<label>User name</label>
+								<input type="text" name="email" data-ng-model="name1" class="validate">
+								<label>Email</label>
 							</div>
 						</div>
 						<div>
@@ -221,12 +228,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div>
 							<div class="input-field s4">
-								<input type="submit" value="Login" name="login" class="waves-effect waves-light log-in-btn"> </div>
+								<input type="submit" id="submit" value="Login" name="login" class="waves-effect waves-light log-in-btn"> </div>
 						</div>
 						<div>
-							<div class="input-field s12"> <a href="forgot-pass.html">Forgot password</a> | <a href="<?php echo base_url('/index.php/register'); ?>">Create a new account</a> </div>
+							<div class="input-field s12"> <a href="forgot-pass.html">Forgot password</a><br/><a href="register">Create a new account</a> </div>
 						</div>
 					</form>
+					<?php echo form_close(); ?>
 				</div>
 			</div>
 	</section>
@@ -384,6 +392,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<!-- GET QUOTES Popup END -->
 	</section>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		$("#submit").click(function(e){
+      
+	  	e.preventDefault();
+		var email = $("input[name='email']").val();
+		var password = $("input[name='password']").val();
+	   
+		$.ajax({
+			url: "userlogin",
+			type: "post",
+			dataType: "json",
+
+			data: {email:email,password:password},
+
+			success: function(data) {
+				if($.isEmptyObject(data.error)){
+					window.location.href="dashboard";
+				}else{
+					$(".alert-danger").css('display','block');
+					$(".alert-danger").html(data.error);
+					}
+				}
+			});      
+		}); 
+	});
+	</script>
 	<!--SCRIPT FILES-->
 	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/angular.min.js'); ?>"></script>

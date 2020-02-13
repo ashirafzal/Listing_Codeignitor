@@ -155,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="ts-menu-4">
 						<div class="v3-top-ri">
 							<ul>
-								<li><a href="login.html" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign In</a> </li>
+								<li><a href="login" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign In</a> </li>
 								<li><a href="db-listing-add.html" class="v3-add-bus"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a> </li>
 							</ul>
 						</div>
@@ -211,16 +211,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a>
 					<h4>Create an Account</h4>
 					<p>Don't have an account? Create your account. It's take less then a minutes</p>
+					<?php echo form_open('welcome_register');?> 
 					<form class="s12" id="registerform" action="welcome_register" method="post">
-						<div style="display:none" id="alert1" class="alert alert-danger alert-dismissible">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
-							<strong>password & confirm password mismatched.</strong>
-						</div>
-						<div style="display:none" id="alert2" class="alert alert-danger alert-dismissible">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
-							<strong>A user already registered with email .Try another one.</strong>
-						</div>
-						<div>
+							<div class="row">
+								<div class="alert alert-success" style="display:none">
+								</div>
+								<div class="alert alert-danger" style="display:none">
+								</div>
+							</div>
+							<div>
 							<div class="input-field s12">
 								<input type="text" id="username" name="username" data-ng-model="name1" class="validate">
 								<label>User name</label>
@@ -254,12 +253,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div>
 							<div class="input-field s4">
-								<input type="submit" value="Register" name="save" class="waves-effect waves-light log-in-btn"> </div>
+								<input type="submit" id="submit" value="Register" name="save" class="waves-effect waves-light log-in-btn"> </div>
 						</div>
 						<div>
 							<div class="input-field s12"> <a href="login">Are you a already member ? Login</a> </div>
 						</div>
 					</form>
+					<?php echo form_close(); ?>
 				</div>
 			</div>
 	</section>
@@ -448,6 +448,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- GET QUOTES Popup END -->
 	</section>
 	<!--SCRIPT FILES-->
+	<script type="text/javascript">
+$(document).ready(function() {
+$("#submit").click(function(e){
+      
+	  	e.preventDefault();
+		var username = $("input[name='username']").val();
+		var email = $("input[name='email']").val();
+		var category = $("select[name='category']").val();
+		var password = $("input[name='password']").val();
+		var confirmpassword = $("input[name='confirmpassword']").val();
+	   
+		$.ajax({
+			url: "welcome_register",
+			type: "post",
+			dataType: "json",
+
+			data: {username:username, email:email, category:category ,
+			password:password , confirmpassword:confirmpassword },
+
+			success: function(data) {
+				if($.isEmptyObject(data.error)){
+					$(".alert-success").css('display','block');
+					$(".alert-success").html(data.success);
+				}else{
+					$(".alert-danger").css('display','block');
+					$(".alert-danger").html(data.error);
+					}
+				}
+			});      
+		}); 
+	});
+	</script>
 	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/angular.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>" type="text/javascript"></script>
