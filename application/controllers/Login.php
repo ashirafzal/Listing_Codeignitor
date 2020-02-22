@@ -34,6 +34,8 @@ class Login extends CI_Controller {
 				
 			$data['all_data'] = $this->Login_Model->login($email,$password);
 
+			$session_email = array('email' => $email);
+
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 
@@ -41,7 +43,7 @@ class Login extends CI_Controller {
 				$errors = validation_errors();
 				echo json_encode(['error'=>$errors]);
 			}else{
-				$this->session->set_userdata('user', $data);
+				$this->session->set_userdata('user', $session_email);
 				if($this->session->userdata('user') == ''){
 					echo json_encode(['error'=>'email or password is incorrect']);
 				}else{

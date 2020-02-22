@@ -449,36 +449,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</section>
 	<!--SCRIPT FILES-->
 	<script type="text/javascript">
-$(document).ready(function() {
-$("#submit").click(function(e){
-      
-	  	e.preventDefault();
-		var username = $("input[name='username']").val();
-		var email = $("input[name='email']").val();
-		var category = $("select[name='category']").val();
-		var password = $("input[name='password']").val();
-		var confirmpassword = $("input[name='confirmpassword']").val();
-	   
-		$.ajax({
-			url: "welcome_register",
-			type: "post",
-			dataType: "json",
+	$(document).ready(function() {
+	$("#submit").click(function(e){
+		
+			e.preventDefault();
+			var username = $("input[name='username']").val();
+			var email = $("input[name='email']").val();
+			var category = $("select[name='category']").val();
+			var password = $("input[name='password']").val();
+			var confirmpassword = $("input[name='confirmpassword']").val();
+		
+			$.ajax({
+				url: "welcome_register",
+				type: "post",
+				dataType: "json",
 
-			data: {username:username, email:email, category:category ,
-			password:password , confirmpassword:confirmpassword },
+				data: {username:username, email:email, category:category ,
+				password:password , confirmpassword:confirmpassword },
 
-			success: function(data) {
-				if($.isEmptyObject(data.error)){
-					$(".alert-success").css('display','block');
-					$(".alert-success").html(data.success);
-				}else{
-					$(".alert-danger").css('display','block');
-					$(".alert-danger").html(data.error);
+				success: function(data) {
+					if($.isEmptyObject(data.error)){
+						$(".alert-success").css('display','block');
+						$(".alert-success").html(data.success);
+					}else{
+						$(".alert-danger").css('display','block');
+						$(".alert-danger").html(data.error);
+						}
 					}
-				}
-			});      
-		}); 
-	});
+				});      
+			}); 
+		});
 	</script>
 	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/angular.min.js'); ?>"></script>

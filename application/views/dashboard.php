@@ -1,16 +1,4 @@
 <?php
-/*
-	foreach($all_data as $data){
-		
-		$userid = $data->id;
-		$username = $data->username;
-		$useremail = $data->email;
-		$usercategory = $data->category;
-
-		break;
-	}	*/
-?>
-<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
@@ -69,12 +57,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					</div>			
                     <!--SECTION: BROWSE CATEGORY(NOTE:IT'S HIDE ON MOBILE & TABLET VIEW)-->
-					<div class="ts-menu-2"><a href="#" style="font-size:1.5rem" class="t-bb">username<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+					<div class="ts-menu-2">
+					<a href="#" style="font-size:1rem" class="t-bb">
+					<?php
+					foreach ($all_data as $user) 
+					{
+						echo $user->username;
+						echo "<br>";
+					}
+					?>
+						<i class="fa fa-angle-down" aria-hidden="true"></i>
+					</a>
 						<!--SECTION: BROWSE CATEGORY-->
 						<div class="cat-menu cat-menu-1">
 							<div class="dz-menu">
 								<div class="dz-menu">
-									<a style="color:#000;" href="<?php echo base_url();?>index.php/logout">Logout</a>
+									<a style="color:#000;" href="logout">Logout</a>
 								</div>								
 							</div>
 						</div>
@@ -117,6 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="tz-l-1">
 					<ul>
 						<li><img src="<?php echo base_url('assets/images/db-profile.jpg')?>" alt="" /> </li>
+						
 						<li><span>80%</span> profile compl</li>
 						<li><span>18</span> Notifications</li>
 					</ul>
@@ -124,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="tz-l-2">
 					<ul>
 						<li>
-							<a href="<?php echo base_url('index.php/dashboard')?>" class="tz-lma"><img src="<?php echo base_url('assets/images/icon/dbl1.png')?>" alt="" /> My Dashboard</a>
+							<a href="dashboard" class="tz-lma"><img src="<?php echo base_url('assets/images/icon/dbl1.png')?>" alt="" /> My Dashboard</a>
 						</li>
 						<li>
 							<a href="db-all-listing.html"><img src="<?php echo base_url('assets/images/icon/dbl2.png')?>" alt="" /> All Listing</a>
@@ -139,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<a href="db-review.html"><img src="<?php echo base_url('assets/images/icon/dbl13.png')?>" alt="" /> Reviews(05)</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('index.php/profile')?>"><img src="<?php echo base_url('assets/images/icon/dbl6.png')?>" alt="" /> My Profile</a>
+							<a href="profile"><img src="<?php echo base_url('assets/images/icon/dbl6.png')?>" alt="" /> My Profile</a>
 						</li>
 						<li>
 							<a href="db-post-ads.html"><img src="<?php echo base_url('assets/images/icon/dbl11.png')?>" alt="" /> Ad Summary</a>

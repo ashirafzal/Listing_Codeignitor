@@ -9,7 +9,7 @@ class Logout extends CI_Controller {
         $this->session->unset_userdata('user'); 
 
         if($this->session->userdata('user') == ''){
-			redirect('login','refresh');
+			echo '<script>window.location.href="login"</script>';
 		}else{
 			$this->load->view('dashboard', $data);
 		}

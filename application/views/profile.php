@@ -37,7 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="ts-menu">
 					<!--SECTION: LOGO-->
 					<div class="ts-menu-1">
-						<a href="index-1.html"><img src="images/aff-logo.png" alt=""> </a>
+						<a href="/">
+							<img src="<?php echo base_url('/assets/images/aff-logo.png'); ?>" alt="">
+						</a>
 					</div>
 					<!--SECTION: BROWSE CATEGORY(NOTE:IT'S HIDE ON MOBILE & TABLET VIEW)-->
 					<div class="ts-menu-2"><a href="#" class="t-bb">All Pages <i class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -193,7 +195,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="tz-l">
 				<div class="tz-l-1">
 					<ul>
-						<li><img src="images/db-profile.jpg" alt="" /> </li>
+						<li><img src="<?php echo base_url('/assets/images/db-profile.jpg');?>" alt="" /> </li>
 						<li><span>80%</span> profile compl</li>
 						<li><span>18</span> Notifications</li>
 					</ul>
@@ -201,40 +203,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="tz-l-2">
 					<ul>
 						<li>
-							<a href="dashboard.html"><img src="images/icon/dbl1.png" alt="" /> My Dashboard</a>
+							<a href="dashboard"><img src="<?php echo base_url('/assets/images/icon/dbl1.png');?>" alt="" /> My Dashboard</a>
 						</li>
 						<li>
-							<a href="db-all-listing.html"><img src="images/icon/dbl2.png" alt="" /> All Listing</a>
+							<a href="db-all-listing.html"><img src="<?php echo base_url('/assets/images/icon/dbl2.png');?>" alt="" /> All Listing</a>
 						</li>
 						<li>
-							<a href="db-listing-add.html"><img src="images/icon/dbl3.png" alt="" /> Add New Listing</a>
+							<a href="db-listing-add.html"><img src="<?php echo base_url('/assets/images/icon/dbl3.png');?>" alt="" /> Add New Listing</a>
 						</li>
 						<li>
-							<a href="db-message.html"><img src="images/icon/dbl14.png" alt="" /> Messages(12)</a>
+							<a href="db-message.html"><img src="<?php echo base_url('/assets/images/icon/dbl14.png');?>" alt="" /> Messages(12)</a>
 						</li>
 						<li>
-							<a href="db-review.html"><img src="images/icon/dbl13.png" alt="" /> Reviews(05)</a>
+							<a href="db-review.html"><img src="<?php echo base_url('/assets/images/icon/dbl13.png');?>" alt="" /> Reviews(05)</a>
 						</li>
 						<li>
-							<a href="db-my-profile.html" class="tz-lma"><img src="images/icon/dbl6.png" alt="" /> My Profile</a>
+							<a href="profile" class="tz-lma"><img src="<?php echo base_url('/assets/images/icon/dbl6.png');?>" alt="" /> My Profile</a>
 						</li>
 						<li>
-							<a href="db-post-ads.html"><img src="images/icon/dbl11.png" alt="" /> Ad Summary</a>
+							<a href="db-post-ads.html"><img src="<?php echo base_url('/assets/images/icon/dbl11.png');?>" alt="" /> Ad Summary</a>
 						</li>
 						<li>
-							<a href="db-payment.html"><img src="images/icon/dbl9.png" alt=""> Check Out</a>
+							<a href="db-payment.html"><img src="<?php echo base_url('/assets/images/icon/dbl9.png');?>" alt=""> Check Out</a>
 						</li>
 						<li>
-							<a href="db-invoice-all.html"><img src="images/icon/db21.png" alt="" /> Invoice</a>
+							<a href="db-invoice-all.html"><img src="<?php echo base_url('/assets/images/icon/db21.png');?>" alt="" /> Invoice</a>
 						</li>						
 						<li>
-							<a href="db-claim.html"><img src="images/icon/dbl7.png" alt="" /> Claim & Refund</a>
+							<a href="db-claim.html"><img src="<?php echo base_url('/assets/images/icon/dbl7.png');?>" alt="" /> Claim & Refund</a>
 						</li>
 						<li>
-							<a href="db-setting.html"><img src="images/icon/dbl210.png" alt="" /> Setting</a>
+							<a href="db-setting.html"><img src="<?php echo base_url('/assets/images/icon/dbl210.png');?>" alt="" /> Setting</a>
 						</li>
 						<li>
-							<a href="#!"><img src="images/icon/dbl12.png" alt="" /> Log Out</a>
+							<a href="#!"><img src="<?php echo base_url('/assets/images/icon/dbl12.png');?>'" alt="" /> Log Out</a>
 						</li>
 					</ul>
 				</div>
@@ -253,42 +255,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tr>
 									<td>User Name</td>
 									<td>:</td>
-									<td>Sam Anderson</td>
+									<td><?php foreach ($all_data as $user) { echo $user->username; } ?></td>
 								</tr>
 								<tr>
 									<td>Password</td>
 									<td>:</td>
-									<td>mypasswordtour</td>
+									<td><?php foreach ($all_data as $user) { echo $user->password; } ?></td>
 								</tr>
 								<tr>
 									<td>Eamil</td>
 									<td>:</td>
-									<td>sam_anderson@gmail.com</td>
+									<td><?php foreach ($all_data as $user) { echo $user->email; } ?></td>
 								</tr>
 								<tr>
 									<td>Phone</td>
 									<td>:</td>
-									<td>+01 4561 3214</td>
+									<td><?php foreach ($all_data as $user) { echo $user->phone; } ?></td>
 								</tr>
 								<tr>
 									<td>Date of birth</td>
 									<td>:</td>
-									<td>03 Jun 1990</td>
+									<td><?php foreach ($all_data as $user) { echo $user->dob; } ?></td>
 								</tr>
 								<tr>
 									<td>Address</td>
 									<td>:</td>
-									<td>8800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.</td>
+									<td><?php foreach ($all_data as $user) { echo $user->address; } ?></td>
 								</tr>
 								<tr>
 									<td>Status</td>
 									<td>:</td>
-									<td><span class="db-done">Active</span> </td>
+									<td><span class="db-done"><?php foreach ($all_data as $user) { echo $user->status; } ?></span> </td>
 								</tr>
 							</tbody>
 						</table>
 						<div class="db-mak-pay-bot">
-							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p> <a href="<?php echo base_url('index.php/editmyprofile')?>" class="waves-effect waves-light btn-large">Edit my profile</a> </div>
+							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p> 
+							<a href="edit-profile" class="waves-effect waves-light btn-large">Edit my profile</a> </div>
 					</div>
 				</div>
 			</div>
@@ -297,49 +300,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h4>Notifications(18)</h4>
 				<ul>
 					<li>
-						<a href="#!"> <img src="images/icon/dbr1.jpg" alt="" />
+						<a href="#!"> <img src="<?php echo base_url('/assets/images/icon/dbr1.jpg');?>" alt="" />
 							<h5>Joseph, write a review</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
 					</li>
 					<li>
-						<a href="#!"> <img src="images/icon/dbr2.jpg" alt="" />
+						<a href="#!"> <img src="<?php echo base_url('/assets/images/icon/dbr2.jpg');?>" alt="" />
 							<h5>14 New Messages</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
 					</li>
 					<li>
-						<a href="#!"> <img src="images/icon/dbr3.jpg" alt="" />
+						<a href="#!"> <img src="<?php echo base_url('/assets/images/icon/dbr3.jpg');?>" alt="" />
 							<h5>Ads expairy soon</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
 					</li>
 					<li>
-						<a href="#!"> <img src="images/icon/dbr4.jpg" alt="" />
+						<a href="#!"> <img src="<?php echo base_url('/assets/images/icon/dbr4.jpg');?>" alt="" />
 							<h5>Post free ads - today only</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
 					</li>
 					<li>
-						<a href="#!"> <img src="images/icon/dbr5.jpg" alt="" />
+						<a href="#!"> <img <?php echo base_url('/assets/images/icon/dbr5.jpg');?>" alt="" />
 							<h5>listing limit increase</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
 					</li>
 					<li>
-						<a href="#!"> <img src="images/icon/dbr6.jpg" alt="" />
+						<a href="#!"> <img src="<?php echo base_url('/assets/images/icon/dbr6.jpg');?>" alt="" />
 							<h5>mobile app launch</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
 					</li>
 					<li>
-						<a href="#!"> <img src="images/icon/dbr7.jpg" alt="" />
+						<a href="#!"> <img <?php echo base_url('/assets/images/icon/dbr7.jpg');?>" alt="" />
 							<h5>Setting Updated</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
 					</li>
 					<li>
-						<a href="#!"> <img src="images/icon/dbr8.jpg" alt="" />
+						<a href="#!"> <img src="<?php echo base_url('/assets/images/icon/dbr8.jpg');?>'" alt="" />
 							<h5>Increase listing viewers</h5>
 							<p>All the Lorem Ipsum generators on the</p>
 						</a>
@@ -504,10 +507,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- GET QUOTES Popup END -->
 	</section>
 	<!--SCRIPT FILES-->
-	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/angular.min.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>" type="text/javascript"></script>
-	<script src="<?php echo base_url('assets/js/materialize.min.js'); ?>" type="text/javascript"></script>
-	<script src="<?php echo base_url('assets/js/custom.js');?> "></script>
+	<script src="<?php echo base_url('/assets/js/jquery.min.js'); ?>"></script>
+	<script src="<?php echo base_url('/assets/js/angular.min.js'); ?>"></script>
+	<script src="<?php echo base_url('/assets/js/bootstrap.js'); ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('/assets/js/materialize.min.js'); ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('/assets/js/custom.js');?> "></script>
 </body>
 </html>

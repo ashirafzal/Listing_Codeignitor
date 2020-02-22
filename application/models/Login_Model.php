@@ -16,11 +16,9 @@
             if ($afftectedRows == 1) {
                 return $query->result();                
             }else{
-                /*redirect('Dashboard/index','refresh');*/
                 //No user exist handling
             }
-
         }
-    }
 
+    }
 ?>

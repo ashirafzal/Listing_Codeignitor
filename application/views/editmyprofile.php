@@ -201,7 +201,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="tz-l-2">
 					<ul>
 						<li>
-							<a href="<?php echo base_url('index.php/dashboard')?>"><img src="<?php echo base_url('assets/images/icon/dbl1.png');?>" alt="" /> My Dashboard</a>
+							<a href="dashboard"><img src="<?php echo base_url('assets/images/icon/dbl1.png');?>" alt="" /> My Dashboard</a>
 						</li>
 						<li>
 							<a href="db-all-listing.html"><img src="<?php echo base_url('assets/images/icon/dbl2.png'); ?>" alt="" /> All Listing</a>
@@ -216,7 +216,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<a href="db-review.html"><img src="<?php echo base_url('assets/mages/icon/dbl13.png'); ?>" alt="" /> Reviews(05)</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('index.php/profile')?>" class="tz-lma"><img src="<?php echo base_url('assets/images/icon/dbl6.png'); ?>" alt="" /> My Profile</a>
+							<a href="profile" class="tz-lma"><img src="<?php echo base_url('assets/images/icon/dbl6.png'); ?>" alt="" /> My Profile</a>
 						</li>
 						<li>
 							<a href="db-post-ads.html"><img src="<?php echo base_url('assets/images/icon/dbl11.png'); ?>" alt="" /> Ad Summary</a>
@@ -249,61 +249,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<p>All the Lorem Ipsum generators on the All the Lorem Ipsum generators on the</p>
 						</div>
 						<div class="tz2-form-pay tz2-form-com">
-							<form class="col s12">
+							<?php echo form_open_multipart('update_profile');?>
+							<form class="col s12" id="update_profile" action="update_profile" method="post" enctype="multipart/form-data">
+								<div class="row">
+									<div class="alert alert-success" style="display:none">
+									</div>
+									<div class="alert alert-danger" style="display:none">
+									</div>
+								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<input type="number" class="validate">
+										<input name="username" type="text" value="<?php foreach ($all_data as $user) { echo $user->username; } ?>" class="validate">
 										<label>User Name</label>
 									</div>
 								</div>
 								<div class="row">
 									<div class="input-field col s12 m6">
-										<input type="password" class="validate">
+										<input name="password" type="password" value="<?php foreach ($all_data as $user) { echo $user->password; } ?>" class="validate">
 										<label>Enter Password</label>
 									</div>
 									<div class="input-field col s12 m6">
-										<input type="password" class="validate">
+										<input name="confirmpassword" type="password" value="<?php foreach ($all_data as $user) { echo $user->password; } ?>" class="validate">
 										<label>Confirm Password</label>
 									</div>
 								</div>
 								<div class="row">
 									<div class="input-field col s12 m6">
-										<input type="email" class="validate">
+										<input name="email" type="email" value="<?php foreach ($all_data as $user) { echo $user->email; } ?>" class="validate">
 										<label>Email id</label>
 									</div>
 									<div class="input-field col s12 m6">
-										<input type="number" class="validate">
+										<input name="phone" type="text" value="<?php foreach ($all_data as $user) { echo $user->phone; } ?>" class="validate">
 										<label>Phone</label>
 									</div>
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<select>
+										<select name="status">
 											<option value="" disabled selected>Select Status</option>
-											<option value="1">Active</option>
-											<option value="2">Non-Active</option>
+											<option value="Active">Active</option>
+											<option value="Non-Active">Non-Active</option>
 										</select>
 									</div>
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<input type="text" class="validate">
+										<input name="address" type="text" value="<?php foreach ($all_data as $user) { echo $user->address; } ?>" class="validate">
+										<label>Address</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input name="dob" type="text" value="<?php foreach ($all_data as $user) { echo $user->dob; } ?>" class="validate">
 										<label>Date Of Birth</label>
 									</div>
 								</div>
 								<div class="row tz-file-upload">
 									<div class="file-field input-field">
 										<div class="tz-up-btn"> <span>Image</span>
-											<input type="file"> </div>
+											<input name="image" type="file"> </div>
 										<div class="file-path-wrapper">
 											<input class="file-path validate" type="text"> </div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<input type="submit" value="SUBMIT" class="waves-effect waves-light full-btn"> </div>
+										<input type="submit" id="submit" value="upload" class="waves-effect waves-light full-btn"> </div>
 								</div>
 							</form>
+							<?php echo form_close(); ?>
 						</div>
 						<div class="db-mak-pay-bot">
 							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p> <a href="db-setting.html" class="waves-effect waves-light btn-large">Profile Setting</a> </div>
@@ -480,6 +494,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- GET QUOTES Popup END -->
 	</section>
 	<!--SCRIPT FILES-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		$("#submit").click(function(e){
+			
+				e.preventDefault();
+				var username = $("input[name='username']").val();
+				var email = $("input[name='email']").val();
+				var status = $("select[name='status']").val();
+				var password = $("input[name='password']").val();
+				var confirmpassword = $("input[name='confirmpassword']").val();
+				var address = $("input[name='address']").val();
+				var phone = $("input[name='phone']").val();
+				var dob = $("input[name='dob']").val();
+				var image = $("input[name='image']").val();
+			
+				$.ajax({
+					url: "update_profile",
+					type: "post",
+					dataType: "json",
+
+					data: {username:username , email:email , status:status ,
+					password:password , confirmpassword:confirmpassword,
+					phone:phone , dob:dob , address:address ,image:image },
+
+					success: function(data) {
+						if($.isEmptyObject(data.error)){
+							$(".alert-success").css('display','block');
+							$(".alert-success").html(data.success);
+						}else{
+							$(".alert-danger").css('display','block');
+							$(".alert-danger").html(data.error);
+							}
+						}
+					});      
+				}); 
+			});
+		</script>
 	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/angular.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>" type="text/javascript"></script>

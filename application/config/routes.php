@@ -60,6 +60,12 @@ $route['welcome_register'] = 'Register/insert_user';
 $route['userlogin'] = 'Login/user_login';
 $route['register'] = 'register';
 $route['dashboard'] = 'Dashboard/index';
+$route['profile'] = 'Profile/index';
+$route['edit-profile'] = 'Editmyprofile/index';
+$route['update_profile'] = 'Editmyprofile/updateprofile';
+$route['add-listing'] = 'Addlisting/index';
+$route['add-to-list'] = 'Addlisting/addlisting';
+$route['logout'] = 'Logout/index';
 /* Own controllers  */
 
 /* Error controllers  */
