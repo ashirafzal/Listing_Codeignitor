@@ -209,7 +209,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<a href="db-all-listing.html"><img src="<?php echo base_url('/assets/images/icon/dbl2.png');?>" alt="" /> All Listing</a>
 						</li>
 						<li>
-							<a href="db-listing-add.html"><img src="<?php echo base_url('/assets/images/icon/dbl3.png');?>" alt="" /> Add New Listing</a>
+							<a href="add-listing"><img src="<?php echo base_url('/assets/images/icon/dbl3.png');?>" alt="" /> Add New Listing</a>
 						</li>
 						<li>
 							<a href="db-message.html"><img src="<?php echo base_url('/assets/images/icon/dbl14.png');?>" alt="" /> Messages(12)</a>

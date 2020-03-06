@@ -760,8 +760,8 @@ $("#submit").click(function(e){
 });
 </script>
 	<!--SCRIPT FILES-->
-	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/angular.min.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>" type="text/javascript"></script>
 	<script src="<?php echo base_url('assets/js/materialize.min.js'); ?>" type="text/javascript"></script>
 	<script src="<?php echo base_url('assets/js/custom.js');?> "></script>

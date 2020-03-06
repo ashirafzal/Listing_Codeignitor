@@ -13,7 +13,6 @@ class Profile extends CI_Controller {
 		}else{
 			$data= $this->Dashboard_Model->userdetail();
 			$this->load->view('profile',$data);
-		}
-		
+		}		
 	}
 }

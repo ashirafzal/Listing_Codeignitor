@@ -20,6 +20,7 @@
 	<link href="<?php echo base_url('/assets/css/bootstrap.css');?>" rel="stylesheet" type="text/css" />
 	<!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
 	<link href="<?php echo base_url('/assets/css/responsive.css');?>" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -204,13 +205,13 @@
 				<div class="tz-l-2">
 					<ul>
 						<li>
-							<a href="dashboard.html"><img src="<?php echo base_url('/assets/images/icon/dbl1.png');?>" alt="" /> My Dashboard</a>
+							<a href="dashboard"><img src="<?php echo base_url('/assets/images/icon/dbl1.png');?>" alt="" /> My Dashboard</a>
 						</li>
 						<li>
 							<a href="db-all-listing.html"><img src="<?php echo base_url('/assets/images/icon/dbl2.png');?>" alt="" /> All Listing</a>
 						</li>
 						<li>
-							<a href="db-listing-add.html" class="tz-lma"><img src="<?php echo base_url('/assets/images/icon/dbl3.png');?>" alt="" /> Add New Listing</a>
+							<a href="add-listing" class="tz-lma"><img src="<?php echo base_url('/assets/images/icon/dbl3.png');?>" alt="" /> Add New Listing</a>
 						</li>
 						<li>
 							<a href="db-message.html"><img src="<?php echo base_url('/assets/images/icon/dbl14.png');?>" alt="" /> Messages(12)</a>
@@ -219,7 +220,7 @@
 							<a href="db-review.html"><img src="<?php echo base_url('/assets/images/icon/dbl13.png');?>" alt="" /> Reviews(05)</a>
 						</li>
 						<li>
-							<a href="db-my-profile.html"><img src="<?php echo base_url('/assets/images/icon/dbl6.png');?>" alt="" /> My Profile</a>
+							<a href="profile"><img src="<?php echo base_url('/assets/images/icon/dbl6.png');?>" alt="" /> My Profile</a>
 						</li>
 						<li>
 							<a href="db-post-ads.html"><img src="<?php echo base_url('/assets/images/icon/dbl11.png');?>" alt="" /> Ad Summary</a>
@@ -253,175 +254,177 @@
 						</div>
 						<div class="hom-cre-acc-left hom-cre-acc-right">
 							<div class="">
-								<form class="">
+								<?php echo form_open_multipart('index.php/Addlisting/do_upload');?>
+								<form class="" id="add_to_list" action="add-list" method="post" enctype="multipart/form-data">
+									<div class="row">
+										<div class="alert alert-success" style="display:none">
+										</div>
+										<div class="alert alert-danger" style="display:none">
+										</div>
+									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input id="first_name" type="text" class="validate">
+											<input id="first_name" name="firstname" type="text" class="validate">
 											<label for="first_name">First Name</label>
 										</div>
 										<div class="input-field col s6">
-											<input id="last_name" type="text" class="validate">
+											<input id="last_name" name="lastname" type="text" class="validate">
 											<label for="last_name">Last Name</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="list_name" type="text" class="validate">
+											<input id="list_name" name="listname" type="text" class="validate">
 											<label for="list_name">Listing Title</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="list_phone" type="text" class="validate">
+											<input id="list_phone" name="listphone" type="text" class="validate">
 											<label for="list_phone">Phone</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="email" type="email" class="validate">
+											<input id="email" name="email" type="email" class="validate">
 											<label for="email">Email</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="list_addr" type="text" class="validate">
+											<input id="list_addr" name="listaddress" type="text" class="validate">
 											<label for="list_addr">Address</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<select>
+											<select name="listingtype">
 												<option value="" disabled selected>Listing Type</option>
-												<option value="1">Free</option>
-												<option value="2">Premium</option>
-												<option value="3">Premium Plus</option>
-												<option value="3">Ultra Premium Plus</option>
+												<option value="Free">Free</option>
+												<option value="Premium">Premium</option>
+												<option value="Premium Plus">Premium Plus</option>
+												<option value="Ultra Premium Plus">Ultra Premium Plus</option>
 											</select>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<select>
+											<select name="city">
 												<option value="" disabled selected>Choose your city</option>
-												<option value="1">Kyoto</option>
-												<option value="2">Charleston</option>
-												<option value="3">Florence</option>
-												<option value="">Rome</option>
-												<option value="">Mexico City</option>
-												<option value="">Barcelona</option>
-												<option value="">San Francisco</option>
-												<option value="">Chicago</option>
-												<option value="">Paris</option>
-												<option value="">Tokyo</option>
-												<option value="">Beijing</option>
-												<option value="">Jerusalem</option>
+												<option value="karachi">karachi</option>
+												<option value="Hyderabad">Hyderabad</option>
+												<option value="Lahore">Lahore</option>
+												<option value="Islamabad">Islamabad</option>
+												<option value="Peshawar">Peshawar</option>
+												<option value="Quetta">Quetta</option>
+												<option value="Multan">Multan</option>
 											</select>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<select multiple>
+											<select name="category" multiple>
 												<option value="" disabled selected>Select Category</option>
-												<option value="">Hotels & Resorts</option>
-												<option value="">Real Estate</option>
-												<option value="">Trainings</option>
-												<option value="">Education</option>
-												<option value="">Hospitals</option>
-												<option value="">Transportation</option>
-												<option value="">Automobilers</option>
-												<option value="">Computer Repair</option>
-												<option value="">Property</option>
-												<option value="">Food Court</option>
-												<option value="">Sports Events</option>
-												<option value="">Tour & Travels</option>
-												<option value="">Health Care</option>
-												<option value="">Gym & Fitness</option>
-												<option value="">Packers and Movers</option>
-												<option value="">Interior Design</option>
-												<option value="">Clubs</option>
-												<option value="">Mobile Shops</option>
+												<option value="Hotels & Resorts">Hotels & Resorts</option>
+												<option value="Real Estate">Real Estate</option>
+												<option value="Trainings">Trainings</option>
+												<option value="Education">Education</option>
+												<option value="Hospitals">Hospitals</option>
+												<option value="Transportation">Transportation</option>
+												<option value="Automobilers">Automobilers</option>
+												<option value="Computer Repair">Computer Repair</option>
+												<option value="Property">Property</option>
+												<option value="Food Court">Food Court</option>
+												<option value="Sports Events">Sports Events</option>
+												<option value="Tour & Travels">Tour & Travels</option>
+												<option value="Health Care">Health Care</option>
+												<option value="Gym & Fitness">Gym & Fitness</option>
+												<option value="Packers and Movers">Packers and Movers</option>
+												<option value="Interior Design">Interior Design</option>
+												<option value="Clubs">Clubs</option>
+												<option value="Mobile Shops">Mobile Shops</option>
 											</select>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<select multiple>
+											<select multiple name="days">
 												<option value="" disabled selected>Opening Days</option>
-												<option value="">All Days</option>
-												<option value="">Monday</option>
-												<option value="">Tuesday</option>
-												<option value="">Wednesday</option>
-												<option value="">Thursday</option>
-												<option value="">Friday</option>
-												<option value="">Saturday</option>
-												<option value="">Sunday</option>
+												<option value="All Days">All Days</option>
+												<option value="Monday">Monday</option>
+												<option value="Tuesday">Tuesday</option>
+												<option value="Wednesday">Wednesday</option>
+												<option value="Thursday">Thursday</option>
+												<option value="Friday">Friday</option>
+												<option value="Saturday">Saturday</option>
+												<option value="Sunday">Sunday</option>
 											</select>
 										</div>
 									</div>
 								<div class="row">
 									<div class="input-field col s6">
-										<select>
+										<select name="openingtime">
 											<option value="" disabled selected>Open Time</option>
-											<option value="">12:00 AM</option>
-											<option value="">01:00 AM</option>
-											<option value="">02:00 AM</option>
-											<option value="">03:00 AM</option>
-											<option value="">04:00 AM</option>
-											<option value="">05:00 AM</option>
-											<option value="">06:00 AM</option>
-											<option value="">07:00 AM</option>
-											<option value="">08:00 AM</option>
-											<option value="">09:00 AM</option>
-											<option value="">10:00 AM</option>
-											<option value="">11:00 AM</option>
-											<option value="">12:00 PM</option>
-											<option value="">01:00 PM</option>
-											<option value="">02:00 PM</option>
-											<option value="">03:00 PM</option>
-											<option value="">04:00 PM</option>
-											<option value="">05:00 PM</option>
-											<option value="">06:00 PM</option>
-											<option value="">07:00 PM</option>
-											<option value="">08:00 PM</option>
-											<option value="">09:00 PM</option>
-											<option value="">10:00 PM</option>
-											<option value="">11:00 PM</option>											
+											<option value="12:00 AM">12:00 AM</option>
+											<option value="01:00 AM">01:00 AM</option>
+											<option value="02:00 AM">02:00 AM</option>
+											<option value="03:00 AM">03:00 AM</option>
+											<option value="04:00 AM">04:00 AM</option>
+											<option value="05:00 AM">05:00 AM</option>
+											<option value="06:00 AM">06:00 AM</option>
+											<option value="07:00 AM">07:00 AM</option>
+											<option value="08:00 AM">08:00 AM</option>
+											<option value="09:00 AM">09:00 AM</option>
+											<option value="10:00 AM">10:00 AM</option>
+											<option value="11:00 AM">11:00 AM</option>
+											<option value="12:00 PM">12:00 PM</option>
+											<option value="01:00 PM">01:00 PM</option>
+											<option value="02:00 PM">02:00 PM</option>
+											<option value="03:00 PM">03:00 PM</option>
+											<option value="04:00 PM">04:00 PM</option>
+											<option value="05:00 PM">05:00 PM</option>
+											<option value="06:00 PM">06:00 PM</option>
+											<option value="07:00 PM">07:00 PM</option>
+											<option value="08:00 PM">08:00 PM</option>
+											<option value="09:00 PM">09:00 PM</option>
+											<option value="10:00 PM">10:00 PM</option>
+											<option value="11:00 PM">11:00 PM</option>											
 										</select>
 									</div>
 									<div class="input-field col s6">
-										<select>
+										<select name="closingtime">
 											<option value="" disabled selected>Closing Time</option>
-											<option value="">12:00 AM</option>
-											<option value="">01:00 AM</option>
-											<option value="">02:00 AM</option>
-											<option value="">03:00 AM</option>
-											<option value="">04:00 AM</option>
-											<option value="">05:00 AM</option>
-											<option value="">06:00 AM</option>
-											<option value="">07:00 AM</option>
-											<option value="">08:00 AM</option>
-											<option value="">09:00 AM</option>
-											<option value="">10:00 AM</option>
-											<option value="">11:00 AM</option>
-											<option value="">12:00 PM</option>
-											<option value="">01:00 PM</option>
-											<option value="">02:00 PM</option>
-											<option value="">03:00 PM</option>
-											<option value="">04:00 PM</option>
-											<option value="">05:00 PM</option>
-											<option value="">06:00 PM</option>
-											<option value="">07:00 PM</option>
-											<option value="">08:00 PM</option>
-											<option value="">09:00 PM</option>
-											<option value="">10:00 PM</option>
-											<option value="">11:00 PM</option>	
+											<option value="12:00 AM">12:00 AM</option>
+											<option value="01:00 AM">01:00 AM</option>
+											<option value="02:00 AM">02:00 AM</option>
+											<option value="03:00 AM">03:00 AM</option>
+											<option value="04:00 AM">04:00 AM</option>
+											<option value="05:00 AM">05:00 AM</option>
+											<option value="06:00 AM">06:00 AM</option>
+											<option value="07:00 AM">07:00 AM</option>
+											<option value="08:00 AM">08:00 AM</option>
+											<option value="09:00 AM">09:00 AM</option>
+											<option value="10:00 AM">10:00 AM</option>
+											<option value="11:00 AM">11:00 AM</option>
+											<option value="12:00 PM">12:00 PM</option>
+											<option value="01:00 PM">01:00 PM</option>
+											<option value="02:00 PM">02:00 PM</option>
+											<option value="03:00 PM">03:00 PM</option>
+											<option value="04:00 PM">04:00 PM</option>
+											<option value="05:00 PM">05:00 PM</option>
+											<option value="06:00 PM">06:00 PM</option>
+											<option value="07:00 PM">07:00 PM</option>
+											<option value="08:00 PM">08:00 PM</option>
+											<option value="09:00 PM">09:00 PM</option>
+											<option value="10:00 PM">10:00 PM</option>
+											<option value="11:00 PM">11:00 PM</option>	
 										</select>
 									</div>
 								</div>
 									<div class="row"> </div>
 									<div class="row">
 										<div class="input-field col s12">
-											<textarea id="textarea1" class="materialize-textarea"></textarea>
+											<textarea id="textarea1" name="textarea1" class="materialize-textarea"></textarea>
 											<label for="textarea1">Listing Descriptions</label>
 										</div>
 									</div>
@@ -432,19 +435,19 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" class="validate">
+											<input type="text" name="facebook" class="validate">
 											<label>www.facebook.com/directory</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" class="validate">
+											<input type="text" name="googleplus" class="validate">
 											<label>www.googleplus.com/directory</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" class="validate">
+											<input type="text" name="twitter" class="validate">
 											<label>www.twitter.com/directory</label>
 										</div>
 									</div>	
@@ -455,32 +458,32 @@
 									</div>	
 									<div class="row">
 										<div class="input-field col s12">
-											<select>
+											<select name="serviceguarantee">
 												<option value="" disabled selected>Select Service Guarantee</option>
-												<option value="1">Upto 2 month of service</option>
-												<option value="2">Upto 6 month of service</option>
-												<option value="3">Upto 1 year of service</option>
-												<option value="4">Upto 2 year of service</option>
-												<option value="5">Upto 5 year of service</option>
+												<option value="Upto 2 month of service">Upto 2 month of service</option>
+												<option value="Upto 6 month of service">Upto 6 month of service</option>
+												<option value="Upto 1 year of service">Upto 1 year of service</option>
+												<option value="Upto 2 year of service">Upto 2 year of service</option>
+												<option value="Upto 5 year of service">Upto 5 year of service</option>
 											</select>
 										</div>
 									</div>									
 									<div class="row">
 										<div class="input-field col s12">
-											<select>
+											<select name="professionalservice">
 												<option value="" disabled selected>Are you a Professionals for this service?</option>
-												<option value="1">Yes</option>
-												<option value="2">No</option>
+												<option value="Yes">Yes</option>
+												<option value="No">No</option>
 											</select>
 										</div>
 									</div>									
 									<div class="row">
 										<div class="input-field col s12">
-											<select>
+											<select name="insurancelimit">
 												<option value="" disabled selected>Insurance Limits</option>
-												<option value="1">Upto $5,000</option>
-												<option value="2">Upto $10,000</option>
-												<option value="3">Upto $15,000</option>
+												<option value="Upto $5,000">Upto $5,000</option>
+												<option value="Upto $10,000">Upto $10,000</option>
+												<option value="Upto $15,000">Upto $15,000</option>
 											</select>
 										</div>
 									</div>	
@@ -491,7 +494,7 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" class="validate">
+											<input type="text" name="iframecode" class="validate">
 											<label>Past your iframe code here</label>
 										</div>
 									</div>
@@ -502,7 +505,7 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" class="validate">
+											<input type="text" name="360iframecode" class="validate">
 											<label>Past your iframe code here</label>
 										</div>
 									</div>									
@@ -514,7 +517,7 @@
 									<div class="row tz-file-upload">
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>File</span>
-												<input type="file"> </div>
+												<input type="file" name="coverimage"> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
@@ -527,8 +530,43 @@
 									</div>
 									<div class="row tz-file-upload">
 										<div class="file-field input-field">
-											<div class="tz-up-btn"> <span>File</span>
-												<input type="file" multiple> </div>
+											<div class="tz-up-btn"> <span>Select Image 1</span>
+												<input type="file" name="galleryimg1"> </div>
+											<div class="file-path-wrapper db-v2-pg-inp">
+												<input class="file-path validate" type="text"> 
+											</div>
+										</div>
+										<div class="file-field input-field">
+											<div class="tz-up-btn"> <span>Select Image 2</span>
+												<input type="file" name="galleryimg2"> </div>
+											<div class="file-path-wrapper db-v2-pg-inp">
+												<input class="file-path validate" type="text"> 
+											</div>
+										</div>
+										<div class="file-field input-field">
+											<div class="tz-up-btn"> <span>Select Image 3</span>
+												<input type="file" name="galleryimg3"> </div>
+											<div class="file-path-wrapper db-v2-pg-inp">
+												<input class="file-path validate" type="text"> 
+											</div>
+										</div>
+										<div class="file-field input-field">
+											<div class="tz-up-btn"> <span>Select Image 4</span>
+												<input type="file" name="galleryimg4"> </div>
+											<div class="file-path-wrapper db-v2-pg-inp">
+												<input class="file-path validate" type="text"> 
+											</div>
+										</div>
+										<div class="file-field input-field">
+											<div class="tz-up-btn"> <span>Select Image 5</span>
+												<input type="file" name="galleryimg5"> </div>
+											<div class="file-path-wrapper db-v2-pg-inp">
+												<input class="file-path validate" type="text"> 
+											</div>
+										</div>
+										<div class="file-field input-field">
+											<div class="tz-up-btn"> <span>Select Image 6</span>
+												<input type="file" name="galleryimg6"> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
@@ -541,14 +579,14 @@
 									</div>	
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" class="validate">
+											<input type="text" name="serviceno1" class="validate">
 											<label>Service Name (ex:Room Booking)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file"> </div>
+														<input type="file" name="serviceimg"> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -558,14 +596,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" class="validate">
+											<input type="text" name="serviceno2" class="validate">
 											<label>Service Name (ex:Java Development)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file"> </div>
+														<input type="file" name="serviceimg2"> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -575,14 +613,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" class="validate">
+											<input type="text" name="serviceno3" class="validate">
 											<label>Service Name (ex:Home Lones)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file"> </div>
+														<input type="file" name="serviceimg3"> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -592,14 +630,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" class="validate">
+											<input type="text" name="serviceno4" class="validate">
 											<label>Service Name (ex:Property Rent)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file"> </div>
+														<input type="file" name="serviceimg4"> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -609,14 +647,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" class="validate">
+											<input type="text" name="serviceno5" class="validate">
 											<label>Service Name (ex:Job Trainings)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file"> </div>
+														<input type="file" name="serviceimg5"> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -626,25 +664,37 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" class="validate">
+											<input type="text" name="serviceno6" class="validate">
 											<label>Service Name (ex:Travels)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file"> </div>
+														<input type="file" name="serviceimg6"> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
 												</div>
 											</div>
 										</div>										
-									</div>									
+									</div>		
+									<!--
 									<div class="row">
-										<div class="input-field col s12 v2-mar-top-40"> <a class="waves-effect waves-light btn-large full-btn" href="db-payment.html">Submit Listing & Pay</a> </div>
+										<div class="input-field col s12 v2-mar-top-40"> 
+											<a id="submit" class="waves-effect waves-light btn-large full-btn" href="add-list">
+												Submit Listing & Pay
+											</a> 
+										</div>
+									</div>
+									-->
+									<div class="row">
+										<div class="input-field col s12">
+											<input type="submit" id="submit" name="submit" value="Submit Listing & Pay" class="waves-effect waves-light full-btn">
+										</div>
 									</div>
 								</form>
+								<?php echo form_close(); ?>
 							</div>
 						</div>
 					</div>
@@ -847,6 +897,85 @@
 		<!-- GET QUOTES Popup END -->
 	</section>
 	<!--SCRIPT FILES-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		$("#submit").click(function(e){
+		
+			e.preventDefault();
+			var firstname = $("input[name='firstname']").val();
+			var lastname = $("input[name='lastname']").val();
+			var listname = $("input[name='listname']").val();
+			var listphone = $("input[name='listphone']").val();
+			var email = $("input[name='email']").val();
+			var listaddress = $("input[name='listaddress']").val();
+			var listingtype = $("select[name='listingtype']").val();
+			var city = $("select[name='city']").val();
+			var category = $("select[name='category']").val();
+			var days = $("select[name='days']").val();
+			var openingtime = $("select[name='openingtime']").val();
+			var closingtime = $("select[name='closingtime']").val();
+			var textarea1 = $("input[name='textarea1']").val();
+			var facebook = $("input[name='facebook']").val();
+			var googleplus = $("input[name='googleplus']").val();
+			var twitter = $("input[name='twitter']").val();
+			var serviceguarantee = $("select[name='serviceguarantee']").val();
+			var professionalservice = $("select[name='professionalservice']").val();
+			var insurancelimit = $("select[name='insurancelimit']").val();
+			var iframecode = $("input[name='iframecode']").val();
+			var 360iframecode = $("input[name='360iframecode']").val();
+			var coverimage = $("input[name='coverimage']").val();
+			var galleryimg1 = $("input[name='galleryimg1']").val();
+			var galleryimg2 = $("input[name='galleryimg2']").val();
+			var galleryimg3 = $("input[name='galleryimg3']").val();
+			var galleryimg4 = $("input[name='galleryimg4']").val();
+			var galleryimg5 = $("input[name='galleryimg5']").val();
+			var galleryimg6 = $("input[name='galleryimg6']").val();
+			var serviceno1 = $("input[name='serviceno1']").val();
+			var serviceimg = $("input[name='serviceimg']").val();
+			var serviceno2 = $("input[name='serviceno2']").val();
+			var serviceimg2 = $("input[name='serviceimg2']").val();
+			var serviceno3 = $("input[name='serviceno3']").val();
+			var serviceimg3 = $("input[name='serviceimg3']").val();
+			var serviceno4 = $("input[name='serviceno4']").val();
+			var serviceimg4 = $("input[name='serviceimg4']").val();
+			var serviceno5 = $("input[name='serviceno5']").val();
+			var serviceimg5 = $("input[name='serviceimg5']").val();
+			var serviceno6 = $("input[name='serviceno6']").val();
+			var serviceimg6 = $("input[name='serviceimg6']").val();
+		
+			$.ajax({
+				url: "add-list",
+				type: "post",
+				dataType: "json",
+
+				data: {firstname:firstname , lastname:lastname , listname:listname ,
+				listphone:listphone , email:email, listaddress:listaddress,
+				listingtype:listingtype , city:city , category:category ,days:days,
+				openingtime:openingtime , closingtime:closingtime , textarea1:textarea1 ,
+				facebook:facebook , googleplus:googleplus , twitter:twitter ,
+				serviceguarantee:serviceguarantee , professionalservice:professionalservice ,
+				insurancelimit:insurancelimit , iframecode:iframecode , 360iframecode:360iframecode,
+				coverimage:coverimage , galleryimg1:galleryimg1 , galleryimg2:galleryimg2 ,
+				galleryimg3:galleryimg3 , galleryimg4:galleryimg4 , galleryimg5:galleryimg5 ,
+				galleryimg6:galleryimg6 , serviceno1:serviceno1 , serviceimg:serviceimg ,
+				serviceno2:serviceno2 , serviceimg2:serviceimg2 ,serviceno3:serviceno3 , 
+				serviceimg3:serviceimg3 , serviceno4:serviceno4 , serviceimg4:serviceimg4 ,
+				serviceno5:serviceno5 , serviceimg5:serviceimg5 ,serviceno6:serviceno6 , 
+				serviceimg6:serviceimg6 },
+
+				success: function(data) {
+					if($.isEmptyObject(data.error)){
+						$(".alert-success").css('display','block');
+						$(".alert-success").html(data.success);
+					}else{
+						$(".alert-danger").css('display','block');
+						$(".alert-danger").html(data.error);
+						}
+					}
+				});      
+			}); 
+		});
+	</script>
 	<script src="<?php echo base_url('/assets/js/jquery.min.js');?>"></script>
 	<script src="<?php echo base_url('/assets/js/bootstrap.js');?>" type="text/javascript"></script>
 	<script src="<?php echo base_url('/assets/js/materialize.min.js');?>" type="text/javascript"></script>

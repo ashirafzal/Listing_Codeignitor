@@ -64,7 +64,7 @@ $route['profile'] = 'Profile/index';
 $route['edit-profile'] = 'Editmyprofile/index';
 $route['update_profile'] = 'Editmyprofile/updateprofile';
 $route['add-listing'] = 'Addlisting/index';
-$route['add-to-list'] = 'Addlisting/addlisting';
+$route['add-list'] = 'Addlisting/do_upload';
 $route['logout'] = 'Logout/index';
 /* Own controllers  */
 

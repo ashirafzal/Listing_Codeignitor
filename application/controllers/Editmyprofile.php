@@ -22,26 +22,9 @@ class Editmyprofile extends CI_Controller {
 		}		
 	}
 
-	public function do_upload()
-	{
-		$config['upload_path']          = './userimages/';
-		$config['allowed_types']        = 'gif|jpg|png|jpeg';
-
-		$this->load->library('upload', $config);
-
-		if (!$this->upload->do_upload('image'))
-		{
-			echo json_encode(['error'=>'image required']);
-		}
-		else
-		{
-			
-		}
-	}
-
 	public function updateprofile()
 	{
-		$this->load->model('Editmyprofile_Model');
+			$this->load->model('Editmyprofile_Model');
 
 			$username = $this->input->post('username');
 			$status = $this->input->post('status');
@@ -83,7 +66,7 @@ class Editmyprofile extends CI_Controller {
 			else
 			{
 				$this->Editmyprofile_Model->updateprofile($username,$email,$password,$phone,$address,$status,$dob,$image);		
-				
+					
 				$this->form_validation->set_rules('username', 'Username', 'required');
 				$this->form_validation->set_rules('status', 'Status', 'required');
 				$this->form_validation->set_rules('password', 'Password', 'required');
