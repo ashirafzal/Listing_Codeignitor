@@ -4,20 +4,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
 	<title>World Best Local Directory Website template</title>
+	<!-- META TAGS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- FAV ICON(BROWSER TAB ICON) -->
-	<link rel="shortcut icon" href="<?php echo base_url('/assets/images/fav.ico'); ?>" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo base_url('/assets/images/fav.ico');?>" type="image/x-icon">
 	<!-- GOOGLE FONT -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:500,700" rel="stylesheet">
 	<!-- FONTAWESOME ICONS -->
-	<link rel="stylesheet" href="<?php echo base_url('/assets/css/font-awesome.min.css'); ?>"/>
+	<link rel="stylesheet" href="<?php echo base_url('/assets/css/font-awesome.min.css');?>">
 	<!-- ALL CSS FILES -->
-	<link rel="stylesheet" href="<?php echo base_url('/assets/css/materialize.css'); ?>"/>
-	<link rel="stylesheet" href="<?php echo base_url('/assets/css/style.css'); ?> "/>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.css'); ?> "/>
+	<link href="<?php echo base_url('/assets/css/materialize.css');?>" rel="stylesheet">
+	<link href="<?php echo base_url('/assets/css/style.css');?>" rel="stylesheet">
+	<link href="<?php echo base_url('/assets/css/bootstrap.css');?>" rel="stylesheet" type="text/css" />
 	<!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
-	<link  rel="stylesheet" href="<?php echo base_url('/assets/css/responsive.css') ?> "/>
+	<link href="<?php echo base_url('/assets/css/responsive.css');?>" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,11 +30,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<!--PRE LOADING-->
-	<!--
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div>
-	-->
 	<!--BANNER AND SERACH BOX-->
 	<section>
 		<div class="v3-top-menu">
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="v3-m-2">
 							<ul>
-								<!--<li><a class='dropdown-button' href='<?php echo base_url('/'); ?>'>Home</a></li>-->
+								<li><a class='dropdown-button' href='<?php echo base_url('/'); ?>'>Home</a></li>
 							</ul>
 						</div>
 						<div class="v3-m-3">
@@ -55,9 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</ul>
 							</div>
 						</div>
-					</div>
-						
-						
+					</div>						
+					<div class="all-drop-down-menu">
 						<!--DROP DOWN MENU: WEB DESIGN-->
 						<ul id='adm-dr1' class='dropdown-content'>
 							<li><a href="admin-all-listing.html">All listing</a> </li>
@@ -119,13 +118,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					<div class="v3-mob-menu">
 						<div class="v3-mob-m-1">
-							<a href="index-1.html"><img src="<?php echo base_url('/assets/images/logo2.png'); ?>" alt=""> </a>
+							<a href="<?php echo base_url('')?>"><img src="<?php echo base_url('/assets/images/logo2.png'); ?>" alt=""> </a>
 						</div>
 						<div class="v3-mob-m-2">
 							<div class="v3-top-ri">
 								<ul>
-									<li><a href="login.html" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign In</a> </li>
-									<li><a href="price.html" class="v3-add-bus"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a> </li>
+									<li><a href="login.html" class="btn-primary"><i class="fa fa-sign-in"></i> Sign In</a> </li>
+									<li><a href="price.html" class="btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a> </li>
 									<li><a href="#" class="ts-menu-5" id="v3-mob-menu-btn"><i class="fa fa-bars" aria-hidden="true"></i>Menu</a> </li>
 								</ul>
 							</div>
@@ -726,6 +725,127 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<!-- GET QUOTES Popup END -->
+		<!-- REQUIREMENT Popup END -->
+		<div class="req-pop">
+			<div class="req-pop-in">
+				<div class="req-pop-lhs">
+					<h4>Why should I fill this?</h4>
+					<ul>
+						<li>
+							<img src="<?php echo base_url('assets/images/icon/d1.png');?>" alt="">
+							<p>Receive advertiser details instantly</p>
+						</li>
+						<li>
+							<img src="<?php echo base_url('assets/images/icon/d2.png');?>" alt="">
+							<p>Discover new projects/properties to <br>your liking via email/sms</p>
+						</li>
+						<li>
+							<img src="<?php echo base_url('assets/images/icon/d3.png');?>" alt="">
+							<p>Our experts will get in touch to help<br> you out when required</p>
+						</li>
+					</ul>
+				</div>
+				<div class="req-pop-rhs">
+					<i class="fa fa-times req-pop-clo"></i>
+					<!---===SECTION 1===--->
+					<div class="req-pop-sec-1">
+						<h2>What you looking for?</h2>
+						<p>Choose your category what you looking for</p>
+						<div class="v8-chbox">
+							<form>
+								<ul>
+									<li>
+									  <input type="checkbox" id="look-1">
+									  <label for="look-1">Hotel room booking</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-2">
+									  <label for="look-2">Realestates</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-3">
+									  <label for="look-3">Hospitals</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-4">
+									  <label for="look-4">Property buy, sell & rent</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-5">
+									  <label for="look-5">Automobiles</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-6">
+									  <label for="look-6">Tution centeres</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-7">
+									  <label for="look-7">Spa and massage centeres</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-8">
+									  <label for="look-8">IT training centers</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-9">
+									  <label for="look-9">Sports training</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-10">
+									  <label for="look-10">Cab booking services</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-11">
+									  <label for="look-11">Bike and car mechanics</label>
+									</li>
+									<li>
+									  <input type="checkbox" id="look-12">
+									  <label for="look-12">Home appliances</label>
+									</li>
+								</ul>
+							</form>
+						</div>
+						<span class="req-nxt req-nxt-1">Next</span>
+					</div>
+					<!---===END SECTION 1===--->
+					<!---===SECTION 2===--->
+					<div class="req-pop-sec-2">
+						<h2>Fill this form</h2>
+						<p>Choose your category what you looking for</p>
+						<div class="v8-inputs">
+							<form>
+								<ul>
+									<li>
+									  <input type="textbox" placeholder="Enter your name" required>
+									</li>
+									<li>
+									  <input type="textbox" placeholder="Enter your email">
+									</li>
+									<li>
+									  <input type="textbox" placeholder="Enter your mobile number">
+									</li>
+									<li>
+									  <span class="rer-sub-btn">Submit</span>
+									</li>
+								</ul>
+							</form>
+						</div>
+						<span class="req-nxt req-nxt-1">Next</span>
+					</div>
+					<!---===END SECTION 2===--->
+					<!---===SECTION 2===--->
+					<div class="req-pop-sec-3">
+						<div>
+							<h2>Success!</h2>
+							<p>Thanks for contacting us! We will get in touch with you shortly</p>
+							<img src="images/thank-you.png">
+						</div>
+					</div>
+					<!---===END SECTION 2===--->
+				</div>
+			</div>
+		</div>
+		<!-- REQUIREMENT Popup END -->
 	</section>
 <script type="text/javascript">
 $(document).ready(function() {

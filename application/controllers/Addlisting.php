@@ -23,139 +23,11 @@ class Addlisting extends CI_Controller {
 		}	
 	}
 
-	public function do_upload(){
-
-		$this->load->helper(array('form', 'url'));
-
-		if (isset($_FILES['coverimage'])){
-			$tmp_name = $_FILES['coverimage']['tmp_name'];
-			$org_name = $_FILES['coverimage']['name'];
-
-			move_uploaded_file($tmp_name, "./listingimages/".$org_name);
-
-		}else{
-			echo json_encode(['error'=>'Cover image required']);
-		}
-
-		if (isset($_FILES['galleryimg1'])){
-			$tmp_name2 = $_FILES['galleryimg1']['tmp_name'];
-			$org_name2 = $_FILES['galleryimg1']['name'];
-
-			move_uploaded_file($tmp_name2, "./listingimages/".$org_name2);
-
-		}else{
-			echo json_encode(['error'=>'Gallery image 1 required']);
-		}
-
-		if (isset($_FILES['galleryimg2'])){
-			$tmp_name3 = $_FILES['galleryimg2']['tmp_name'];
-			$org_name3 = $_FILES['galleryimg2']['name'];
-
-			move_uploaded_file($tmp_name3, "./listingimages/".$org_name3);
-
-		}else{
-			echo json_encode(['error'=>'Gallery image 2 required']);
-		}
-
-		if (isset($_FILES['galleryimg3'])){
-			$tmp_name4 = $_FILES['galleryimg3']['tmp_name'];
-			$org_name4 = $_FILES['galleryimg3']['name'];
-
-			move_uploaded_file($tmp_name4, "./listingimages/".$org_name4);
-
-		}else{
-			echo json_encode(['error'=>'Gallery image 3 required']);
-		}
-
-		if (isset($_FILES['galleryimg4'])){
-			$tmp_name5 = $_FILES['galleryimg4']['tmp_name'];
-			$org_name5 = $_FILES['galleryimg4']['name'];
-
-			move_uploaded_file($tmp_name5, "./listingimages/".$org_name5);
-
-		}else{
-			echo json_encode(['error'=>'Gallery image 4 required']);
-		}
-
-		if (isset($_FILES['galleryimg5'])){
-			$tmp_name6 = $_FILES['galleryimg5']['tmp_name'];
-			$org_name6 = $_FILES['galleryimg5']['name'];
-
-			move_uploaded_file($tmp_name6, "./listingimages/".$org_name6);
-
-		}else{
-			echo json_encode(['error'=>'Gallery image 5 required']);
-		}
-
-		if (isset($_FILES['galleryimg6'])){
-			$tmp_name7 = $_FILES['galleryimg6']['tmp_name'];
-			$org_name7 = $_FILES['galleryimg6']['name'];
-
-			move_uploaded_file($tmp_name7, "./listingimages/".$org_name7);
-
-		}else{
-			echo json_encode(['error'=>'Gallery image 6 required']);
-		}
-
-		if (isset($_FILES['serviceimg'])){
-			$tmp_name8 = $_FILES['serviceimg']['tmp_name'];
-			$org_name8 = $_FILES['serviceimg']['name'];
-
-			move_uploaded_file($tmp_name8, "./listingimages/".$org_name8);
-
-		}else{
-			echo json_encode(['error'=>'Service image 1 required']);
-		}
-
-		if (isset($_FILES['serviceimg2'])){
-			$tmp_name9 = $_FILES['serviceimg2']['tmp_name'];
-			$org_name9 = $_FILES['serviceimg2']['name'];
-
-			move_uploaded_file($tmp_name9, "./listingimages/".$org_name9);
-
-		}else{
-			echo json_encode(['error'=>'Service image 2 required']);
-		}
-
-		if (isset($_FILES['serviceimg3'])){
-			$tmp_name10 = $_FILES['serviceimg3']['tmp_name'];
-			$org_name10 = $_FILES['serviceimg3']['name'];
-
-			move_uploaded_file($tmp_name10, "./listingimages/".$org_name10);
-
-		}else{
-			echo json_encode(['error'=>'Service image 3 required']);
-		}
-		
-		if (isset($_FILES['serviceimg4'])){
-			$tmp_name11 = $_FILES['serviceimg4']['tmp_name'];
-			$org_name11 = $_FILES['serviceimg4']['name'];
-
-			move_uploaded_file($tmp_name11, "./listingimages/".$org_name11);
-
-		}else{
-			echo json_encode(['error'=>'Service image 4 required']);
-		}
-
-		if (isset($_FILES['serviceimg5'])){
-			$tmp_name12 = $_FILES['serviceimg5']['tmp_name'];
-			$org_name12 = $_FILES['serviceimg5']['name'];
-
-			move_uploaded_file($tmp_name12, "./listingimages/".$org_name12);
-
-		}else{
-			echo json_encode(['error'=>'Service image 5 required']);
-		}
-
-		if (isset($_FILES['serviceimg6'])){
-			$tmp_name13 = $_FILES['serviceimg6']['tmp_name'];
-			$org_name13 = $_FILES['serviceimg6']['name'];
-
-			move_uploaded_file($tmp_name13, "./listingimages/".$org_name13);
-
-		}else{
-			echo json_encode(['error'=>'Service image 6 required']);
-		}
+	public function do_upload()
+	{	
+		$this->load->library('form_validation');
+		$this->load->model('Dashboard_Model');
+		$this->load->model('Addlisting_Model');
 
 		$firstname = $this->input->post('firstname');
 		$lastname = $this->input->post('lastname');
@@ -165,7 +37,7 @@ class Addlisting extends CI_Controller {
 		$listaddress = $this->input->post('listaddress');
 		$listingtype = $this->input->post('listingtype');
 		$city = $this->input->post('city');
-		$category = $this->input->post('category');
+		$listingcategory = $this->input->post('category');
 		$days = $this->input->post('days');
 		$openingtime = $this->input->post('openingtime');
 		$closingtime = $this->input->post('closingtime');
@@ -177,106 +49,326 @@ class Addlisting extends CI_Controller {
 		$professionalservice = $this->input->post('professionalservice');
 		$insurancelimit = $this->input->post('insurancelimit');
 		$iframecode = $this->input->post('iframecode');
-		$iframecode360 = $this->input->post('360iframecode');
+		$iframecode360 = $this->input->post('iframecode360');
 		$serviceno1 = $this->input->post('serviceno1');
 		$serviceno2 = $this->input->post('serviceno2');
 		$serviceno3 = $this->input->post('serviceno3');
 		$serviceno4 = $this->input->post('serviceno4');
 		$serviceno5 = $this->input->post('serviceno5');
 		$serviceno6 = $this->input->post('serviceno6');
+		$org_name = $this->input->post('coverimage');
+		$org_name2 = $this->input->post('galleryimg1');
+		$org_name3 = $this->input->post('galleryimg2');
+		$org_name4 = $this->input->post('galleryimg3');
+		$org_name5 = $this->input->post('galleryimg4');
+		$org_name6 = $this->input->post('galleryimg5');
+		$org_name7 = $this->input->post('galleryimg6');
+		$org_name8 = $this->input->post('serviceimg');
+		$org_name9 = $this->input->post('serviceimg2');
+		$org_name10 = $this->input->post('serviceimg3');
+		$org_name11 = $this->input->post('serviceimg4');
+		$org_name12 = $this->input->post('serviceimg5');
+		$org_name13 = $this->input->post('serviceimg6');
 
-		if(strpos($category, "Hotel & Resorts") !== false){
-			$op1 = "available";
+		$config = array(
+		'upload_path' => "./listingimages/",
+		'allowed_types' => "gif|jpg|png|jpeg|pdf",
+		'overwrite' => TRUE,
+		'max_size' => "5120000", // Can be set to particular file size , here it is 5 MB(5120 Kb)
+		'max_height' => "1024",
+		'max_width' => "2048"
+		);
+		$this->load->library('upload', $config);
+
+		if($this->upload->do_upload('coverimage')){
+			$org_name = $this->upload->data();
 		}else{
-			$op1 = "not available";
-		}
-		if(strpos($category, "Real Estate") !== false){
-			$op2 = "available";
-		}else{
-			$op2 = "not available";
-		}
-		if(strpos($category, "Trainings") !== false){
-			$op3 = "available";
-		}else{
-			$op3 = "not available";
-		}
-		if(strpos($category, "Education") !== false){
-			$op4 = "available";
-		}else{
-			$op4 = "not available";
-		}
-		if(strpos($category, "Hospitals") !== false){
-			$op5 = "available";
-		}else{
-			$op5 = "not available";
-		}
-		if(strpos($category, "Transportation") !== false){
-			$op6 = "available";
-		}else{
-			$op6 = "not available";
-		}
-		if(strpos($category, "Automobilers") !== false){
-			$op7 = "available";
-		}else{
-			$op7 = "not available";
-		}
-		if(strpos($category, "Computer Repair") !== false){
-			$op8 = "available";
-		}else{
-			$op8 = "not available";
-		}
-		if(strpos($category, "Property") !== false){
-			$op9 = "available";
-		}else{
-			$op9 = "not available";
-		}
-		if(strpos($category, "Food Court") !== false){
-			$op10 = "available";
-		}else{
-			$op10 = "not available";
-		}
-		if(strpos($category, "Sport Events") !== false){
-			$op11 = "available";
-		}else{
-			$op11 = "not available";
-		}
-		if(strpos($category, "Tour & Travels") !== false){
-			$op12 = "available";
-		}else{
-			$op12 = "not available";
-		}
-		if(strpos($category, "Health Care") !== false){
-			$op13 = "available";
-		}else{
-			$op13 = "not available";
-		}
-		if(strpos($category, "Gym & Fitness") !== false){
-			$op14 = "available";
-		}else{
-			$op14 = "not available";
-		}
-		if(strpos($category, "Packers and Movers") !== false){
-			$op15 = "available";
-		}else{
-			$op15 = "not available";
-		}
-		if(strpos($category, "Interior Design") !== false){
-			$op16 = "available";
-		}else{
-			$op16 = "not available";
-		}
-		if(strpos($category, "Clubs") !== false){
-			$op17 = "available";
-		}else{
-			$op17 = "not available";
-		}
-		if(strpos($category, "Mobile Shops") !== false){
-			$op18 = "available";
-		}else{
-			$op18 = "not available";
+			$error = $this->upload->display_errors();
 		}
 
-		$this->load->model('Dashboard_Model');
+		if($this->upload->do_upload('galleryimg1')){
+			$org_name2 = $this->upload->data();
+		}else{
+			$error2 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('galleryimg2')){
+			$org_name3 = $this->upload->data();
+		}else{
+			$error3 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('galleryimg3')){
+			$org_name4 = $this->upload->data();
+		}else{
+			$error4 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('galleryimg4')){
+			$org_name5 = $this->upload->data();
+		}else{
+			$error5 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('galleryimg5')){
+			$org_name6 = $this->upload->data();
+		}else{
+			$error6 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('galleryimg6')){
+			$org_name7 = $this->upload->data();
+		}else{
+			$error7 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('serviceimg')){
+			$org_name8 = $this->upload->data();
+		}else{
+			$error8 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('serviceimg2')){
+			$org_name9 = $this->upload->data();
+		}else{
+			$error9 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('serviceimg3')){
+			$org_name10 = $this->upload->data();
+		}else{
+			$error10 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('serviceimg4')){
+			$org_name11 = $this->upload->data();
+		}else{
+			$error11 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('serviceimg5')){
+			$org_name12 = $this->upload->data();
+		}else{
+			$error12 = $this->upload->display_errors();
+		}
+
+		if($this->upload->do_upload('serviceimg6')){
+			$org_name13 = $this->upload->data();
+		}else{
+			$error13 = $this->upload->display_errors();
+		}
+
+		$listingcategory = implode(" ", (array)$listingcategory);	
+		$days = implode(" ", (array)$days);
+		
+		if(strpos($listingcategory, 'Hotels & Resorts') !== FALSE)
+		{
+			$opt1 = "available";
+		}
+		else
+		{
+			$opt1 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Real Estate') !== FALSE)
+		{
+			$opt2 = "available";
+		}else
+		{
+			$opt2 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Trainings') !== FALSE)
+		{
+			$opt3 = "available";
+		}else
+		{
+			$opt3 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Education') !== FALSE)
+		{
+			$opt4 = "available";
+		}else
+		{
+			$opt4 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Hospitals') !== FALSE)
+		{
+			$opt5 = "available";
+		}else
+		{
+			$opt5 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Transportation') !== FALSE)
+		{
+			$opt6 = "available";
+		}else
+		{
+			$opt6 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Automobilers') !== FALSE)
+		{
+			$opt7 = "available";
+		}else
+		{
+			$opt7 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Computer Repair') !== FALSE)
+		{
+			$opt8 = "available";
+		}else
+		{
+			$opt8 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Property') !== FALSE)
+		{
+			$opt9 = "available";
+		}else
+		{
+			$opt9 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Food Court') !== FALSE)
+		{
+			$opt10 = "available";
+		}else
+		{
+			$opt10 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Sports Events') !== FALSE)
+		{
+			$opt11 = "available";
+		}else
+		{
+			$opt11 = "not available";
+		}
+		if(strpos($listingcategory, 'Tour & Travels') !== FALSE)
+		{
+			$opt12 = "available";
+		}else
+		{
+			$opt12 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Health Care') !== FALSE)
+		{
+			$opt13 = "available";
+		}else
+		{
+			$opt13 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Gym & Fitness') !== FALSE)
+		{
+			$opt14 = "available";
+		}else
+		{
+			$opt14 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Packers and Movers') !== FALSE)
+		{
+			$opt15 = "available";
+		}else
+		{
+			$opt15 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Interior Design') !== FALSE)
+		{
+			$opt16 = "available";
+		}else
+		{
+			$opt16 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Clubs') !== FALSE)
+		{
+			$opt17 = "available";
+		}else
+		{
+			$opt17 = "not available";
+		}
+
+		if(strpos($listingcategory, 'Mobile Shops') !== FALSE)
+		{
+			$opt18 = "available";
+		}
+		else
+		{
+			$opt18 = "not available";
+		}
+
+		if(strpos($days, 'Monday') !== FALSE)
+		{
+			$opt19 = "available";
+		}
+		else
+		{
+			$opt19 = "not available";
+		}
+
+		if(strpos($days, 'Tuesday') !== FALSE)
+		{
+			$opt20 = "available";
+		}
+		else
+		{
+			$opt20 = "not available";
+		}
+
+		if(strpos($days, 'Wednesday') !== FALSE)
+		{
+			$opt21 = "available";
+		}
+		else
+		{
+			$opt21 = "not available";
+		}
+
+		if(strpos($days, 'Thursday') !== FALSE)
+		{
+			$opt22 = "available";
+		}
+		else
+		{
+			$opt22 = "not available";
+		}
+
+		if(strpos($days, 'Friday') !== FALSE)
+		{
+			$opt23 = "available";
+		}
+		else
+		{
+			$opt23 = "not available";
+		}
+
+		if(strpos($days, 'Saturday') !== FALSE)
+		{
+			$opt24 = "available";
+		}
+		else
+		{
+			$opt24 = "not available";
+		}
+
+		if(strpos($days, 'Sunday') !== FALSE)
+		{
+			$opt25 = "available";
+		}
+		else
+		{
+			$opt25 = "not available";
+		}
+
 		$data= $this->Dashboard_Model->userdetail();
 
 		foreach ($data['all_data'] as $user) 
@@ -290,20 +382,6 @@ class Addlisting extends CI_Controller {
 			$userstatus = $user->status;  
 		}
 		
-		$this->load->model('Addlisting_Model');
-		$this->Addlisting_Model->addlist($userid,$username,$useremail,
-		$usercategory,$userphone,$useraddress,$userstatus,$firstname,
-		$lastname,$listname,$listphone,$businessemail,$listaddress,$listingtype,
-		$city,$op1,$op2,$op3,$op4,$op5,$op6,$op7,$op8,$op9,$op10,$op11,
-		$op12,$op13,$op14,$op15,$op16,$op17,$op18,$days,$openingtime,$closingtime,
-		$textarea1,$facebook,$googleplus,$twitter,$serviceguarantee,
-		$professionalservice,$insurancelimit,$iframecode,$iframecode360,
-		$org_name,$org_name2,$org_name3,$org_name4,$org_name5,
-		$org_name6,$org_name7,$serviceno1,$org_name8,$serviceno2,
-		$org_name9,$serviceno3,$org_name10,$serviceno4,$org_name11,
-		$serviceno5,$org_name12,$serviceno6,$org_name13);
-		
-
 		$this->form_validation->set_rules('firstname', 'First Name', 'required');
 		$this->form_validation->set_rules('lastname', 'Last Name', 'required');
 		$this->form_validation->set_rules('listname', 'List Name', 'required');
@@ -312,7 +390,8 @@ class Addlisting extends CI_Controller {
 		$this->form_validation->set_rules('listaddress', 'List Address', 'required');
 		$this->form_validation->set_rules('listingtype', 'Listing Type', 'required');
 		$this->form_validation->set_rules('city', 'City', 'required');
-		$this->form_validation->set_rules('days', 'Days', 'required');
+		$this->form_validation->set_rules('category', 'Category', '');
+		$this->form_validation->set_rules('days', 'Days', '');
 		$this->form_validation->set_rules('openingtime', 'Opening Time', 'required');
 		$this->form_validation->set_rules('closingtime', 'Closing Time', 'required');
 		$this->form_validation->set_rules('textarea1', 'Text Area', 'required');
@@ -324,31 +403,40 @@ class Addlisting extends CI_Controller {
 		$this->form_validation->set_rules('insurancelimit', 'Insurance Limit', 'required');
 		$this->form_validation->set_rules('iframecode', 'iframecode', 'required');
 		$this->form_validation->set_rules('iframecode360', '360 iframecode', 'required');
-		$this->form_validation->set_rules('coverimage', 'Cover Image', 'required');
-		$this->form_validation->set_rules('galleryimg1', 'Gallery image 1', 'required');
-		$this->form_validation->set_rules('galleryimg2', 'Gallery image 2', 'required');
-		$this->form_validation->set_rules('galleryimg3', 'Gallery image 3', 'required');
-		$this->form_validation->set_rules('galleryimg4', 'Gallery image 4', 'required');
-		$this->form_validation->set_rules('galleryimg5', 'Gallery image 5', 'required');
-		$this->form_validation->set_rules('galleryimg6', 'Gallery image 6', 'required');
 		$this->form_validation->set_rules('serviceno1', 'service No 1', 'required');
-		$this->form_validation->set_rules('serviceimg', 'Service Image 1', 'required');
 		$this->form_validation->set_rules('serviceno2', 'service No 2', 'required');
-		$this->form_validation->set_rules('serviceimg2', 'Service Image 2', 'required');
 		$this->form_validation->set_rules('serviceno3', 'service No 3', 'required');
-		$this->form_validation->set_rules('serviceimg3', 'Service Image 3', 'required');
 		$this->form_validation->set_rules('serviceno4', 'service No 4', 'required');
-		$this->form_validation->set_rules('serviceimg4', 'Service Image 4', 'required');
 		$this->form_validation->set_rules('serviceno5', 'service No 5', 'required');
-		$this->form_validation->set_rules('serviceimg5', 'Service Image 5', 'required');
 		$this->form_validation->set_rules('serviceno6', 'service No 6', 'required');
-		$this->form_validation->set_rules('serviceimg6', 'Service Image 6', 'required');
 
 		if ($this->form_validation->run() == FALSE){
 			$errors = validation_errors();
-			echo json_encode(['error'=>$errors]);
+			$data= $this->Dashboard_Model->userdetail();
+			$this->load->library('session'); 
+         	$this->load->helper('url'); 
+			$this->session->flashdata('error');
+			$this->session->set_flashdata('error',$errors); 
+			$this->load->view('addlisting',$data);
 		}else{
-			echo json_encode(['success'=>'List Created successfully.']);
+			$this->Addlisting_Model->addlist($userid,$username,$useremail,
+			$usercategory,$userphone,$useraddress,$userstatus,$firstname,
+			$lastname,$listname,$listphone,$businessemail,$listaddress,$listingtype,$city,
+			$opt1,$opt2,$opt3,$opt4,$opt5,$opt6,$opt7,$opt8,$opt9,$opt10,$opt11,$opt12,$opt13,
+			$opt14,$opt15,$opt16,$opt17,$opt18,$opt19,$opt20,$opt21,$opt22,$opt23,$opt24,$opt25,
+			$openingtime,$closingtime,$textarea1,$facebook,$googleplus,$twitter,$serviceguarantee,
+			$professionalservice,$insurancelimit,$iframecode,$iframecode360,
+			$org_name,$org_name2,$org_name3,$org_name4,$org_name5,
+			$org_name6,$org_name7,$serviceno1,$org_name8,$serviceno2,
+			$org_name9,$serviceno3,$org_name10,$serviceno4,$org_name11,
+			$serviceno5,$org_name12,$serviceno6,$org_name13);
+
+			$data= $this->Dashboard_Model->userdetail();
+			$this->load->library('session'); 
+         	$this->load->helper('url'); 
+			$this->session->flashdata('listingsuccess');
+			$this->session->set_flashdata('listingsuccess','List Created successfully.'); 
+			$this->load->view('addlisting',$data);
 		}
 	}
 }

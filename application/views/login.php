@@ -4,20 +4,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
 	<title>World Best Local Directory Website template</title>
+	<!-- META TAGS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- FAV ICON(BROWSER TAB ICON) -->
-	<link rel="shortcut icon" href="<?php echo base_url('/assets/images/fav.ico'); ?>" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo base_url('/assets/images/fav.ico');?>" type="image/x-icon">
 	<!-- GOOGLE FONT -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:500,700" rel="stylesheet">
 	<!-- FONTAWESOME ICONS -->
-	<link rel="stylesheet" href="<?php echo base_url('/assets/css/font-awesome.min.css'); ?>"/>
+	<link rel="stylesheet" href="<?php echo base_url('/assets/css/font-awesome.min.css');?>">
 	<!-- ALL CSS FILES -->
-	<link rel="stylesheet" href="<?php echo base_url('/assets/css/materialize.css'); ?>"/>
-	<link rel="stylesheet" href="<?php echo base_url('/assets/css/style.css'); ?> "/>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.css'); ?> "/>
+	<link href="<?php echo base_url('/assets/css/materialize.css');?>" rel="stylesheet">
+	<link href="<?php echo base_url('/assets/css/style.css');?>" rel="stylesheet">
+	<link href="<?php echo base_url('/assets/css/bootstrap.css');?>" rel="stylesheet" type="text/css" />
 	<!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
-	<link  rel="stylesheet" href="<?php echo base_url('/assets/css/responsive.css') ?> "/>
+	<link href="<?php echo base_url('/assets/css/responsive.css');?>" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -420,10 +422,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	});
 	</script>
 	<!--SCRIPT FILES-->
-	<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/angular.min.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>" type="text/javascript"></script>
-	<script src="<?php echo base_url('assets/js/materialize.min.js'); ?>" type="text/javascript"></script>
-	<script src="<?php echo base_url('assets/js/custom.js');?> "></script>
+	<script src="<?php echo base_url('/assets/js/jquery.min.js'); ?>"></script>
+	<script src="<?php echo base_url('/assets/js/angular.min.js'); ?>"></script>
+	<script src="<?php echo base_url('/assets/js/bootstrap.js'); ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('/assets/js/materialize.min.js'); ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('/assets/js/custom.js');?> "></script>
 </body>
 </html>

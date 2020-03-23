@@ -17,7 +17,7 @@
 	<!-- ALL CSS FILES -->
 	<link href="<?php echo base_url('/assets/css/materialize.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('/assets/css/style.css');?>" rel="stylesheet">
-	<link href="<?php echo base_url('/assets/css/bootstrap.css');?>" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url('/assets/css/bootstrap.css');?>" rel="stylesheet" type="text/css"/>
 	<!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
 	<link href="<?php echo base_url('/assets/css/responsive.css');?>" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -254,51 +254,66 @@
 						</div>
 						<div class="hom-cre-acc-left hom-cre-acc-right">
 							<div class="">
-								<?php echo form_open_multipart('index.php/Addlisting/do_upload');?>
-								<form class="" id="add_to_list" action="add-list" method="post" enctype="multipart/form-data">
+								<?php /*echo form_open_multipart('add-list');*/?>
+								<form class="" action="add-list" id="addlist" method="post" enctype="multipart/form-data">
 									<div class="row">
-										<div class="alert alert-success" style="display:none">
-										</div>
-										<div class="alert alert-danger" style="display:none">
-										</div>
+										<?php
+											if (!$this->session->flashdata('error') == ''){												
+												echo "<div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
+											}else{
+												
+											}
+											if (!$this->session->flashdata('listingsuccess') == ''){												
+												echo "<div class='alert alert-success'>".$this->session->flashdata('listingsuccess')."</div>";
+											}else{
+												
+											}
+											if (!$this->session->flashdata('imageerror') == ''){												
+												echo "<div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
+											}else{
+												
+											}
+										?>			
+										<div class="alert alert-danger" id="alert" style="display:none">
+										</div>							
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input id="first_name" name="firstname" type="text" class="validate">
+											<input id="first_name" name="firstname" type="text" class="validate" required>
 											<label for="first_name">First Name</label>
 										</div>
 										<div class="input-field col s6">
-											<input id="last_name" name="lastname" type="text" class="validate">
+											<input id="last_name" name="lastname" type="text" class="validate" required>
 											<label for="last_name">Last Name</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="list_name" name="listname" type="text" class="validate">
+											<input id="list_name" name="listname" type="text" class="validate" required>
 											<label for="list_name">Listing Title</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="list_phone" name="listphone" type="text" class="validate">
+											<input id="list_phone" name="listphone" type="text" class="validate" required>
 											<label for="list_phone">Phone</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="email" name="email" type="email" class="validate">
+											<input id="email" name="email" type="email" class="validate" required>
 											<label for="email">Email</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="list_addr" name="listaddress" type="text" class="validate">
+											<input id="list_addr" name="listaddress" type="text" class="validate" required>
 											<label for="list_addr">Address</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<select name="listingtype">
+											<select id="listingtype" name="listingtype" required>
 												<option value="" disabled selected>Listing Type</option>
 												<option value="Free">Free</option>
 												<option value="Premium">Premium</option>
@@ -309,7 +324,7 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<select name="city">
+											<select id="city" name="city" required>
 												<option value="" disabled selected>Choose your city</option>
 												<option value="karachi">karachi</option>
 												<option value="Hyderabad">Hyderabad</option>
@@ -323,7 +338,7 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<select name="category" multiple>
+											<select id="category" name="category" multiple required>
 												<option value="" disabled selected>Select Category</option>
 												<option value="Hotels & Resorts">Hotels & Resorts</option>
 												<option value="Real Estate">Real Estate</option>
@@ -348,9 +363,8 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<select multiple name="days">
+											<select id="days" multiple name="days" required>
 												<option value="" disabled selected>Opening Days</option>
-												<option value="All Days">All Days</option>
 												<option value="Monday">Monday</option>
 												<option value="Tuesday">Tuesday</option>
 												<option value="Wednesday">Wednesday</option>
@@ -363,7 +377,7 @@
 									</div>
 								<div class="row">
 									<div class="input-field col s6">
-										<select name="openingtime">
+										<select id="openingtime" name="openingtime" required>
 											<option value="" disabled selected>Open Time</option>
 											<option value="12:00 AM">12:00 AM</option>
 											<option value="01:00 AM">01:00 AM</option>
@@ -392,7 +406,7 @@
 										</select>
 									</div>
 									<div class="input-field col s6">
-										<select name="closingtime">
+										<select id="closingtime" name="closingtime" required>
 											<option value="" disabled selected>Closing Time</option>
 											<option value="12:00 AM">12:00 AM</option>
 											<option value="01:00 AM">01:00 AM</option>
@@ -424,7 +438,7 @@
 									<div class="row"> </div>
 									<div class="row">
 										<div class="input-field col s12">
-											<textarea id="textarea1" name="textarea1" class="materialize-textarea"></textarea>
+											<textarea id="textarea1" name="textarea1" class="materialize-textarea" required></textarea>
 											<label for="textarea1">Listing Descriptions</label>
 										</div>
 									</div>
@@ -435,19 +449,19 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="facebook" class="validate">
+											<input id="facebook" type="text" name="facebook" class="validate" required>
 											<label>www.facebook.com/directory</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="googleplus" class="validate">
+											<input type="text" id="googleplus" name="googleplus" class="validate" required>
 											<label>www.googleplus.com/directory</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="twitter" class="validate">
+											<input type="text" name="twitter" class="validate" required>
 											<label>www.twitter.com/directory</label>
 										</div>
 									</div>	
@@ -458,7 +472,7 @@
 									</div>	
 									<div class="row">
 										<div class="input-field col s12">
-											<select name="serviceguarantee">
+											<select id="serviceguarantee" name="serviceguarantee" required>
 												<option value="" disabled selected>Select Service Guarantee</option>
 												<option value="Upto 2 month of service">Upto 2 month of service</option>
 												<option value="Upto 6 month of service">Upto 6 month of service</option>
@@ -470,7 +484,7 @@
 									</div>									
 									<div class="row">
 										<div class="input-field col s12">
-											<select name="professionalservice">
+											<select id="professionalservice" name="professionalservice" required>
 												<option value="" disabled selected>Are you a Professionals for this service?</option>
 												<option value="Yes">Yes</option>
 												<option value="No">No</option>
@@ -479,7 +493,7 @@
 									</div>									
 									<div class="row">
 										<div class="input-field col s12">
-											<select name="insurancelimit">
+											<select id="insurancelimit" name="insurancelimit" required>
 												<option value="" disabled selected>Insurance Limits</option>
 												<option value="Upto $5,000">Upto $5,000</option>
 												<option value="Upto $10,000">Upto $10,000</option>
@@ -494,7 +508,7 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="iframecode" class="validate">
+											<input type="text" id="iframecode" name="iframecode" class="validate" required>
 											<label>Past your iframe code here</label>
 										</div>
 									</div>
@@ -505,7 +519,7 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="360iframecode" class="validate">
+											<input type="text" id="iframecode360" name="iframecode360" class="validate" required>
 											<label>Past your iframe code here</label>
 										</div>
 									</div>									
@@ -517,7 +531,7 @@
 									<div class="row tz-file-upload">
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>File</span>
-												<input type="file" name="coverimage"> </div>
+												<input type="file" id="coverimage" name="coverimage" required> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
@@ -531,42 +545,42 @@
 									<div class="row tz-file-upload">
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>Select Image 1</span>
-												<input type="file" name="galleryimg1"> </div>
+												<input type="file" id="galleryimg1" name="galleryimg1" required> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
 										</div>
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>Select Image 2</span>
-												<input type="file" name="galleryimg2"> </div>
+												<input type="file" id="galleryimg2" name="galleryimg2" required> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
 										</div>
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>Select Image 3</span>
-												<input type="file" name="galleryimg3"> </div>
+												<input type="file" id="galleryimg3" name="galleryimg3" required> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
 										</div>
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>Select Image 4</span>
-												<input type="file" name="galleryimg4"> </div>
+												<input type="file" id="galleryimg4" name="galleryimg4" required> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
 										</div>
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>Select Image 5</span>
-												<input type="file" name="galleryimg5"> </div>
+												<input type="file" id="galleryimg5" name="galleryimg5" required> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
 										</div>
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>Select Image 6</span>
-												<input type="file" name="galleryimg6"> </div>
+												<input type="file" id="galleryimg6" name="galleryimg6" required> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
@@ -579,14 +593,14 @@
 									</div>	
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" name="serviceno1" class="validate">
+											<input type="text" id="serviceno1" name="serviceno1" class="validate" required>
 											<label>Service Name (ex:Room Booking)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file" name="serviceimg"> </div>
+														<input type="file" id="serviceimg" name="serviceimg" required> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -596,14 +610,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" name="serviceno2" class="validate">
+											<input type="text" id="serviceno2" name="serviceno2" class="validate" required>
 											<label>Service Name (ex:Java Development)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file" name="serviceimg2"> </div>
+														<input type="file" id="serviceimg2" name="serviceimg2" required> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -613,14 +627,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" name="serviceno3" class="validate">
+											<input type="text" id="serviceno3" name="serviceno3" class="validate" required>
 											<label>Service Name (ex:Home Lones)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file" name="serviceimg3"> </div>
+														<input type="file" id="serviceimg3" name="serviceimg3" required> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -630,14 +644,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" name="serviceno4" class="validate">
+											<input type="text" id="serviceno4" name="serviceno4" class="validate" required>
 											<label>Service Name (ex:Property Rent)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file" name="serviceimg4"> </div>
+														<input type="file" id="serviceimg4" name="serviceimg4" required> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -647,14 +661,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" name="serviceno5" class="validate">
+											<input type="text" id="serviceno5" name="serviceno5" class="validate" required>
 											<label>Service Name (ex:Job Trainings)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file" name="serviceimg5"> </div>
+														<input type="file" id="serviceimg5" name="serviceimg5" required> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -664,14 +678,14 @@
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input type="text" name="serviceno6" class="validate">
+											<input type="text" id="serviceno6" name="serviceno6" class="validate" required>
 											<label>Service Name (ex:Travels)</label>
 										</div>
 										<div class="col s6">
 											<div class="row tz-file-upload">
 												<div class="file-field input-field">
 													<div class="tz-up-btn"> <span>File</span>
-														<input type="file" name="serviceimg6"> </div>
+														<input type="file" id="serviceimg6" name="serviceimg6" required> </div>
 													<div class="file-path-wrapper db-v2-pg-inp">
 														<input class="file-path validate" type="text"> 
 													</div>
@@ -679,22 +693,13 @@
 											</div>
 										</div>										
 									</div>		
-									<!--
-									<div class="row">
-										<div class="input-field col s12 v2-mar-top-40"> 
-											<a id="submit" class="waves-effect waves-light btn-large full-btn" href="add-list">
-												Submit Listing & Pay
-											</a> 
-										</div>
-									</div>
-									-->
 									<div class="row">
 										<div class="input-field col s12">
 											<input type="submit" id="submit" name="submit" value="Submit Listing & Pay" class="waves-effect waves-light full-btn">
 										</div>
 									</div>
 								</form>
-								<?php echo form_close(); ?>
+								<?php /*echo form_close();*/ ?>
 							</div>
 						</div>
 					</div>
@@ -897,85 +902,31 @@
 		<!-- GET QUOTES Popup END -->
 	</section>
 	<!--SCRIPT FILES-->
+	<!--
 	<script type="text/javascript">
-		$(document).ready(function() {
-		$("#submit").click(function(e){
-		
-			e.preventDefault();
-			var firstname = $("input[name='firstname']").val();
-			var lastname = $("input[name='lastname']").val();
-			var listname = $("input[name='listname']").val();
-			var listphone = $("input[name='listphone']").val();
-			var email = $("input[name='email']").val();
-			var listaddress = $("input[name='listaddress']").val();
-			var listingtype = $("select[name='listingtype']").val();
-			var city = $("select[name='city']").val();
-			var category = $("select[name='category']").val();
-			var days = $("select[name='days']").val();
-			var openingtime = $("select[name='openingtime']").val();
-			var closingtime = $("select[name='closingtime']").val();
-			var textarea1 = $("input[name='textarea1']").val();
-			var facebook = $("input[name='facebook']").val();
-			var googleplus = $("input[name='googleplus']").val();
-			var twitter = $("input[name='twitter']").val();
-			var serviceguarantee = $("select[name='serviceguarantee']").val();
-			var professionalservice = $("select[name='professionalservice']").val();
-			var insurancelimit = $("select[name='insurancelimit']").val();
-			var iframecode = $("input[name='iframecode']").val();
-			var 360iframecode = $("input[name='360iframecode']").val();
-			var coverimage = $("input[name='coverimage']").val();
-			var galleryimg1 = $("input[name='galleryimg1']").val();
-			var galleryimg2 = $("input[name='galleryimg2']").val();
-			var galleryimg3 = $("input[name='galleryimg3']").val();
-			var galleryimg4 = $("input[name='galleryimg4']").val();
-			var galleryimg5 = $("input[name='galleryimg5']").val();
-			var galleryimg6 = $("input[name='galleryimg6']").val();
-			var serviceno1 = $("input[name='serviceno1']").val();
-			var serviceimg = $("input[name='serviceimg']").val();
-			var serviceno2 = $("input[name='serviceno2']").val();
-			var serviceimg2 = $("input[name='serviceimg2']").val();
-			var serviceno3 = $("input[name='serviceno3']").val();
-			var serviceimg3 = $("input[name='serviceimg3']").val();
-			var serviceno4 = $("input[name='serviceno4']").val();
-			var serviceimg4 = $("input[name='serviceimg4']").val();
-			var serviceno5 = $("input[name='serviceno5']").val();
-			var serviceimg5 = $("input[name='serviceimg5']").val();
-			var serviceno6 = $("input[name='serviceno6']").val();
-			var serviceimg6 = $("input[name='serviceimg6']").val();
-		
-			$.ajax({
-				url: "add-list",
-				type: "post",
-				dataType: "json",
-
-				data: {firstname:firstname , lastname:lastname , listname:listname ,
-				listphone:listphone , email:email, listaddress:listaddress,
-				listingtype:listingtype , city:city , category:category ,days:days,
-				openingtime:openingtime , closingtime:closingtime , textarea1:textarea1 ,
-				facebook:facebook , googleplus:googleplus , twitter:twitter ,
-				serviceguarantee:serviceguarantee , professionalservice:professionalservice ,
-				insurancelimit:insurancelimit , iframecode:iframecode , 360iframecode:360iframecode,
-				coverimage:coverimage , galleryimg1:galleryimg1 , galleryimg2:galleryimg2 ,
-				galleryimg3:galleryimg3 , galleryimg4:galleryimg4 , galleryimg5:galleryimg5 ,
-				galleryimg6:galleryimg6 , serviceno1:serviceno1 , serviceimg:serviceimg ,
-				serviceno2:serviceno2 , serviceimg2:serviceimg2 ,serviceno3:serviceno3 , 
-				serviceimg3:serviceimg3 , serviceno4:serviceno4 , serviceimg4:serviceimg4 ,
-				serviceno5:serviceno5 , serviceimg5:serviceimg5 ,serviceno6:serviceno6 , 
-				serviceimg6:serviceimg6 },
-
-				success: function(data) {
-					if($.isEmptyObject(data.error)){
-						$(".alert-success").css('display','block');
-						$(".alert-success").html(data.success);
-					}else{
-						$(".alert-danger").css('display','block');
-						$(".alert-danger").html(data.error);
-						}
-					}
-				});      
-			}); 
+		$('#addlist').submit(function() {
+			if ($.trim($("#first_name").val()) === "" || $.trim($("#last_name").val()) === ""
+			|| $.trim($("#list_name").val()) === ""|| $.trim($("#list_phone").val()) === ""
+			|| $.trim($("#listingtype").val()) === ""
+			|| $.trim($("#textarea1").val()) === ""|| $.trim($("#facebook").val()) === ""
+			|| $.trim($("#googleplus").val()) === ""|| $.trim($("#twitter").val()) === ""
+			|| $.trim($("#serviceguarantee").val()) === ""|| $.trim($("#professionalservice").val()) === ""
+			|| $.trim($("#insurancelimit").val()) === ""|| $.trim($("#iframecode").val()) === ""
+			|| $.trim($("#iframecode360").val()) === ""
+			|| $.trim($("#serviceno1").val()) === ""|| $.trim($("#serviceno2").val()) === ""
+			|| $.trim($("#serviceno3").val()) === ""|| $.trim($("#serviceno4").val()) === ""
+			|| $.trim($("#serviceno5").val()) === ""|| $.trim($("#serviceno6").val()) === ""
+			){
+				//alert('you did not fill out one of the fields');
+				$("#alert").css('display','block');
+				$("#alert").html('All Fields required. Make sure you fill up all fields');
+				return false;
+			}else{
+				return true;
+			}
 		});
 	</script>
+	-->
 	<script src="<?php echo base_url('/assets/js/jquery.min.js');?>"></script>
 	<script src="<?php echo base_url('/assets/js/bootstrap.js');?>" type="text/javascript"></script>
 	<script src="<?php echo base_url('/assets/js/materialize.min.js');?>" type="text/javascript"></script>

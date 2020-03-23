@@ -48,8 +48,6 @@ class Login extends CI_Controller {
 					echo json_encode(['error'=>'email or password is incorrect']);
 				}else{
 					echo json_encode(['success'=>'ticket to dashboard']);
-					//$this->load->view('dashboard', $data);
-					//redirect(base_url().'index.php/Dashboard/index');
 				}
 			}				
 			
